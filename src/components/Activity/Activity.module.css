@@ -1,0 +1,13 @@
+.pic img{
+    width: 260rem;
+    height: 140rem;
+    border-radius: 20rem;
+}
+
+.allpic{
+    margin: 40rem 100rem;
+    width: 560rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

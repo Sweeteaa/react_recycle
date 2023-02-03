@@ -1,0 +1,9 @@
+.pic{
+    width: 650rem;
+    height: 300rem;
+    margin: 50rem;
+    background-color: cadetblue;
+    display: flex;
+    align-items: center;
+    border-radius: 50rem;
+}
