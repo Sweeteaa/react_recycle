@@ -1,0 +1,59 @@
+.main{
+    height:100%;
+	margin:0;
+}
+
+.back{
+    position: absolute;
+    top: 20rem;
+    left: 20rem;
+    color: rgb(83, 83, 83);
+}
+
+.form{
+    width: 500rem;
+    height: 500rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.name input{
+    width: 450rem;
+    height: 80rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 35rem;
+}
+
+.psw input{
+    width: 450rem;
+    height: 80rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 35rem;
+}
+
+.btn{
+    width: 400rem;
+    height: 80rem;
+    border: none;
+    border-radius: 20rem;
+    font-size: 35rem;
+    font-weight: bold;
+}
+
+.sign{
+    text-decoration: none;
+    color: cadetblue;
+    font-size: 28rem;
+}

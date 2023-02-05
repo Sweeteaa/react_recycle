@@ -1,9 +1,12 @@
 import React, { useRef, useState } from 'react';
+import classes from './Author.module.css'
 import {login} from '../../store/reducer/authSlice'
 import {store} from '../../store/index'
 import axios from 'axios';
 import {signIn} from '../../store/api/register'
 import { useNavigate } from 'react-router-dom';
+import { LeftOutline } from 'antd-mobile-icons'
+import { Link } from 'react-router-dom';
 
 //登录注册页面
 const Author = () => {
@@ -60,26 +63,28 @@ const Author = () => {
         }
     }
     return (
-        <div>
-            <h3>{isLogin? "登录":"注册"}</h3>
-            <form onSubmit={submitHandler}>
-                <div>
+        <div className={classes.main}>
+            <Link to='/' className={classes.back}><LeftOutline fontSize={'40rem'} /></Link>
+            <form onSubmit={submitHandler} className={classes.form}>
+                <div className={classes.name}>
                     <input ref={numberInf} type="text" placeholder={"账号"}/>
                 </div>
-                <div>
+                <div className={classes.psw}>
                     <input ref={pwdInf} type="password" placeholder={"密码"}/>
                 </div>
                 <div>
-                    <button>{isLogin? "登录":"注册"}</button>
-                    <a href='#' onClick={e => {
-                            //取消点击默认行为
-                            e.preventDefault();
-                            //更改状态值
-                            setIsLogin(prevState => !prevState)
-                        }
-                    }>{
-                        isLogin? "没有账号，点击注册":"已有账号，点击登录"
-                    }</a>
+                    <button className={classes.btn}>{isLogin? "登录":"注册"}</button>
+                </div>
+                <div>
+                    <a href='#' className={classes.sign} onClick={e => {
+                                //取消点击默认行为
+                                e.preventDefault();
+                                //更改状态值
+                                setIsLogin(prevState => !prevState)
+                            }
+                        }>{
+                            isLogin? "没有账号，点击注册":"已有账号，点击登录"
+                        }</a>
                 </div>
             </form>
         </div>

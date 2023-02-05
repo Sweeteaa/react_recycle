@@ -1,9 +1,24 @@
-.pic{
+.message{
     width: 650rem;
     height: 300rem;
     margin: 50rem;
     background-color: cadetblue;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     border-radius: 50rem;
+}
+
+.pic{
+    width: 150rem;
+}
+
+.name{
+    width: 350rem;
+}
+
+.word{
+    color: #333;
+    text-decoration: none;
+    font-size: 40rem;
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import classes from './Home.module.css'
 import Logistics from '../../components/Logistics/Logistics';
 import Activity from '../../components/Activity/Activity';
+import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
     return (
@@ -28,6 +29,7 @@ const Home = () => {
             <div>
                 <Activity/>
             </div>
+            <Footer/>
         </div>
     );
 };

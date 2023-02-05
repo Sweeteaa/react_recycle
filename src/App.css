@@ -1,3 +1,5 @@
 .App{
     overflow: hidden;
+    /* 底栏遮挡部分 */
+    padding-bottom: 120rem;
 }
