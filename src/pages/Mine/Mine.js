@@ -13,7 +13,7 @@ import Footer from '../../components/Footer/Footer'
 const Mine = () => {
     const auth = useSelector(state => state.auth)
     return (
-        <div>
+        <div className={classes.main}>
             {/* 用户信息展示 islogged判断登录状态，true-登录、false-未登录 */}
             <div className={classes.message}>
                 <div className={classes.pic}>
@@ -47,7 +47,7 @@ const Mine = () => {
             <div>
                 {
                     auth.isLogged && 
-                    <Link to='/' className={classes.exit} onClick={()=>store.dispatch(logout())}><button>退出</button></Link>
+                    <Link to='/' onClick={()=>store.dispatch(logout())}><button className={classes.exit}>退出</button></Link>
                 }
             </div>
             

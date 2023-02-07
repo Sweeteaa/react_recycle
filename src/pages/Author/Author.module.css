@@ -3,13 +3,6 @@
 	margin:0;
 }
 
-.back{
-    position: absolute;
-    top: 20rem;
-    left: 20rem;
-    color: rgb(83, 83, 83);
-}
-
 .form{
     width: 500rem;
     height: 500rem;
@@ -32,6 +25,7 @@
     border-left: none;
     border-right: none;
     font-size: 35rem;
+    background-color: #fffff0;
 }
 
 .psw input{
@@ -41,6 +35,7 @@
     border-left: none;
     border-right: none;
     font-size: 35rem;
+    background-color: #fffff0;
 }
 
 .btn{

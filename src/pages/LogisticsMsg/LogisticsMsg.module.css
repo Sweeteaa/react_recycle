@@ -1,12 +1,17 @@
 .list{
-    height: 120rem;
-    width: 650rem;
+    height: 170rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border-radius: 20rem;
-    margin: 20rem 40rem;
-    background-color: rgb(255, 255, 255);
+    border-top: 2rem rgb(107, 107, 107) solid;
+    border-bottom: 2rem rgb(107, 107, 107)  solid;
+}
+
+.top{
+    width: 100%;
+    height: 70rem;
+    display: flex;
+    align-items: center;
 }
 
 .lead{
@@ -18,9 +23,6 @@
 }
 
 .norecycle{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 160rem;
     font-size: 33rem;
     text-decoration: none;
@@ -29,20 +31,14 @@
 }
 
 .recycling{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 160rem;
-    font-size: 30rem;
+    font-size: 33rem;
     text-decoration: none;
     color: rgb(46, 45, 45);
     font-weight: bold;
 }
 
 .commit{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 160rem;
     font-size: 33rem;
     text-decoration: none;
@@ -51,9 +47,6 @@
 }
 
 .all{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 160rem;
     font-size: 33rem;
     text-decoration: none;

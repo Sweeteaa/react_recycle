@@ -22,3 +22,15 @@
     text-decoration: none;
     font-size: 40rem;
 }
+
+.exit{
+    width: 400rem;
+    height: 80rem;
+    border: none;
+    border-radius: 20rem;
+    font-size: 35rem;
+    font-weight: bold;
+    background-color: cadetblue;
+    color: #fff;
+    margin: 20rem 160rem;
+}

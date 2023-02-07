@@ -5,8 +5,7 @@ import {store} from '../../store/index'
 import axios from 'axios';
 import {signIn} from '../../store/api/register'
 import { useNavigate } from 'react-router-dom';
-import { LeftOutline } from 'antd-mobile-icons'
-import { Link } from 'react-router-dom';
+import Back from '../../components/Back/Back';
 
 //登录注册页面
 const Author = () => {
@@ -64,7 +63,7 @@ const Author = () => {
     }
     return (
         <div className={classes.main}>
-            <Link to='/' className={classes.back}><LeftOutline fontSize={'40rem'} /></Link>
+            <Back/>
             <form onSubmit={submitHandler} className={classes.form}>
                 <div className={classes.name}>
                     <input ref={numberInf} type="text" placeholder={"账号"}/>
