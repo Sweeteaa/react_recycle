@@ -1,0 +1,46 @@
+.title{
+    width: 600rem;
+    height: 180rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45rem;
+    font-weight: bold;
+    color: cadetblue;
+    border-radius: 30rem;
+    margin: 30rem 80rem;
+}
+
+.list{
+    width: 750rem;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item{
+    width: 350rem;
+    height: 400rem;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20rem;
+    margin: 10rem;
+}
+
+.image{
+    margin: 10rem;
+}
+
+.info{
+    width: 350rem;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30rem;
+}

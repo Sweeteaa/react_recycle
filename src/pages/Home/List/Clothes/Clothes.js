@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Back from '../../../../components/Back/Back';
-import classes from './Clothes.module.css'
-import { Form, Image, DatePicker, Input, Selector, Button } from 'antd-mobile'
-import dayjs from 'dayjs'
+import classes from './Clothes.module.css';
+import { Form, Image, DatePicker, Input, Selector, Button } from 'antd-mobile';
+import { RightOutline } from 'antd-mobile-icons';
+import dayjs from 'dayjs';
+import { Link } from 'react-router-dom';
+
 
 const Clothes = () => {
+    const onFinish = (values) => {
+        // Dialog.alert({
+        //   content: <pre>{JSON.stringify(values, null, 2)}</pre>,
+        // })
+        console.log(JSON.stringify(values))
+    }
+
     return (
         <div className={classes.main}>
             <Back/> 
@@ -20,17 +30,21 @@ const Clothes = () => {
                 </div>
             </div>
             <div>
-                可回收种类
+                回收流程
             </div>
             <div>
                 <Form 
+                    onFinish={onFinish}
                     footer={
                         <Button block type='submit' color='primary' size='large'  shape='rounded' style={{'--background-color':'#008080'}}>
                             提交
                         </Button>
                     } style={{width:'700rem',margin:'25rem'}}>
-                    <Form.Item name='address' label='地址' help='详情地址' rules={[{ required: true }]}>
-                        <Input placeholder='请输入地址' />
+                    <Form.Item  label='地址' help='详情地址' rules={[{ required: true }]} required>
+                        <div className={classes.address}>
+                            <Link to='/home/address' className={classes.select}>请输入地址</Link>
+                            <div><RightOutline style={{color:'#C0C0C0'}}/></div>
+                        </div>
                     </Form.Item>
                     <Form.Item
                         name='date'
@@ -52,16 +66,13 @@ const Clothes = () => {
                             columns={3}
                             multiple
                             options={[
-                            { label: '8-20件', value: '1' },
-                            { label: '20-60件', value: '2' },
-                            { label: '60件+', value: '3' },
+                            { label: '8-20件', value: 'a' },
+                            { label: '20-60件', value: 'b' },
+                            { label: '60件+', value: 'c' },
                             ]}
                         />
                     </Form.Item>
                 </Form>
-            </div>
-            <div>
-                提交按钮
             </div>
         </div>
     );

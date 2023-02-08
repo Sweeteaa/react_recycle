@@ -6,3 +6,13 @@
     color: rgb(95, 160, 138);
 }
 
+.address{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.select{
+    color: #333;
+}
+

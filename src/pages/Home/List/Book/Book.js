@@ -61,9 +61,6 @@ const Book = () => {
                     </Form.Item>
                 </Form>
             </div>
-            <div>
-                提交按钮
-            </div>
         </div>
         </div>
     );

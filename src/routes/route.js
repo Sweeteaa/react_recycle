@@ -15,6 +15,7 @@ import Clothes from '../pages/Home/List/Clothes/Clothes';
 import Book from '../pages/Home/List/Book/Book';
 import Item from '../pages/Home/List/Item/Item';
 import Furniture from '../pages/Home/List/Furniture/Furniture';
+import Address from '../pages/Address/Address';
 
 const route = () => {
     return (
@@ -24,6 +25,7 @@ const route = () => {
                 <Route path={"/home/book"} element={<Book/>}></Route>
                 <Route path={"/home/item"} element={<Item/>}></Route>
                 <Route path={"/home/furniture"} element={<Furniture/>}></Route>
+                <Route path={"/home/address"} element={<Address/>}></Route>
             <Route path={"/use"} element={<Use/>}></Route>
             <Route path={"/mine"} element={<Mine/>}></Route>
                 <Route path={"/mine/logistics"} element={<LogisticsMsg/>}></Route>
