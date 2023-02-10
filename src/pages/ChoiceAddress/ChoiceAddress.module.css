@@ -1,0 +1,66 @@
+.main{
+    margin-top: 20rem;
+    margin-bottom: 110rem;
+    margin-left: 50rem;
+}
+
+.list{
+    width: 650rem;
+    height: 200rem;
+    border-radius: 30rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.people{
+    background-color: aqua;
+    display: flex;
+    width: 550rem;
+    margin: 20rem 0;
+}
+
+.name{
+    background-color: blue;
+    font-size: 42rem;
+    margin: 0 10rem;
+}
+
+.phone{
+    background-color: blueviolet;
+    font-size: 42rem;
+}
+
+.address{
+    background-color: yellow;
+    display: flex;
+    width: 550rem;
+}
+
+.sample{
+    background-color: blue;
+    font-size: 36rem;
+    margin: 0 10rem;
+}
+
+.detail{
+    background-color: blueviolet;
+    font-size: 36rem;
+}
+
+.btn{
+    width: 600rem;
+    height: 100rem;
+    border: none;
+    border-radius: 50rem;
+    font-size: 40rem;
+    position: fixed;
+    left: 0;
+    bottom: 50rem;
+    right: 0;
+    margin: auto;
+    background-color: cadetblue;
+    color: #fff;
+}

@@ -1,14 +1,14 @@
 import React from 'react';
-import Back from '../../../../components/Back/Back';
 import classes from './Item.module.css'
 import { Form, Image, DatePicker, Input, Selector, Button } from 'antd-mobile'
 import dayjs from 'dayjs'
+import Go from '../../../../components/Go/Go';
 
 const Item = () => {
     return (
         <div>
             <div className={classes.main}>
-            <Back/> 
+            <Go/> 
             <div className={classes.step}>
                 <h2>回收步骤</h2>
                 <div>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Back from '../../../../components/Back/Back';
 import classes from './Clothes.module.css';
 import { Form, Image, DatePicker, Input, Selector, Button } from 'antd-mobile';
 import { RightOutline } from 'antd-mobile-icons';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
+import Go from '../../../../components/Go/Go';
 
 
 const Clothes = () => {
@@ -17,7 +17,7 @@ const Clothes = () => {
 
     return (
         <div className={classes.main}>
-            <Back/> 
+            <Go/> 
             <div className={classes.step}>
                 <h2>回收步骤</h2>
                 <div>
@@ -42,7 +42,7 @@ const Clothes = () => {
                     } style={{width:'700rem',margin:'25rem'}}>
                     <Form.Item  label='地址' help='详情地址' rules={[{ required: true }]} required>
                         <div className={classes.address}>
-                            <Link to='/home/address' className={classes.select}>请输入地址</Link>
+                            <Link to='/home/choice' className={classes.select}>请输入地址</Link>
                             <div><RightOutline style={{color:'#C0C0C0'}}/></div>
                         </div>
                     </Form.Item>

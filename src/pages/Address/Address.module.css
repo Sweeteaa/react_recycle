@@ -20,3 +20,15 @@
     font-size: 30rem;
     margin: 30rem 0;
 }
+
+.btn{
+    width: 600rem;
+    height: 100rem;
+    border: none;
+    border-radius: 50rem;
+    position: fixed;
+    left: 0;
+    bottom: 50rem;
+    right: 0;
+    margin: auto;
+}

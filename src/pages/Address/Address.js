@@ -1,6 +1,7 @@
-import React,{useState} from 'react';
+import React,{useRef, useState} from 'react';
 import { Field, Popup, Picker, Form, Button } from 'react-vant';
-import Back from '../../components/Back/Back';
+import Go from '../../components/Go/Go';
+import classes from './Address.module.css'
 
 const columns = [
     {
@@ -36,30 +37,86 @@ const columnsFieldNames = {
     children: 'cities',
 };
 
+//城市选择器
+function PickerItem(props) {
+    const { value, onChange, name, ...fieldProps } = props;
+    const [visible, setVisible] = useState(false);
+  
+    const onShow = () => {
+      setVisible(true);
+    };
+    const onCancel = () => {
+      setVisible(false);
+    };
+    const onConfirm = (val) => {
+      onChange(val);
+      onCancel();
+    };
+  
+    return (
+      <>
+        <Field isLink readonly name={name} {...fieldProps} value={value} onClick={onShow} />
+            <Popup 
+                position="bottom" 
+                round 
+                visible={visible} 
+                onClose={onCancel}
+            >
+                <Picker 
+                    title="选择城市" 
+                    columns={columns} 
+                    onConfirm={onConfirm} 
+                    onCancel={onCancel} 
+                    columnsFieldNames={columnsFieldNames} 
+                />
+            </Popup>
+      </>
+    );
+}
+  
+
 const Address = () => {
-    const [fieldValue, setFieldValue] = useState('');
-    const [showPicker, setShowPicker] = useState(false);
+    const [value, setValue] = useState('');
     const [value2, setValue2] = useState('');
+    const [value3, setValue3] = useState('');
+
+    const [form] = Form.useForm();
+
+    const onFinish = (values) => {
+      console.log('form submit', values);
+    };
 
     return (
         <div>
-            <Back/>
+            <Go/>
             <Form 
                 inset='true' 
                 style={{width:'700rem',margin:'80rem 30rem'}}
                 footer={
-                    <div style={{ margin: '16rem 16rem 0' }}>
-                        <Button round nativeType="submit" type="primary" block>
+                    <div className={classes.btn}>
+                        <Button 
+                            round 
+                            nativeType="submit" 
+                            type="primary" 
+                            block color='#008080' 
+                            >
                             提交
                         </Button>
                     </div>
                 }
+                onFinish={onFinish} 
+                form={form}
             >
-                <Form.Item name="username" label="姓名" required>
-                    <Field />
+                <Form.Item name="username" label="姓名" required style={{fontSize:'35rem'}}>
+                    <Field 
+                        placeholder={'请输入姓名'} 
+                        value={value} 
+                        // ref={refField}
+                        onChange={setValue}
+                    />
                 </Form.Item>
                 <Form.Item
-                    name="text2"
+                    name="phone"
                     label="手机号码"
                     rules={[
                     {
@@ -72,38 +129,34 @@ const Address = () => {
                     },
                     ]}
                     required
+                    style={{fontSize:'35rem'}}
+                    value={value2} 
+                    onChange={setValue2} 
+                    // ref={refField}
                 > 
-                    <Field placeholder="手机号码" />
+                    <Field placeholder="请输入手机号码" />
                 </Form.Item>
-                <Form.Item required>
-                    <Field
-                        readonly
-                        clickable
-                        label="城市"
-                        value={fieldValue}
-                        placeholder="选择城市"
-                        onClick={() => setShowPicker(true)} 
+                <Form.Item 
+                    required 
+                    name="city" 
+                    label="城市"
+                    style={{fontSize:'35rem'}}
+                >
+                    <PickerItem/>
+                </Form.Item>
+                <Form.Item 
+                    required 
+                    label="详细地址"
+                    name="detail"
+                    style={{fontSize:'35rem'}}
+                    value={value3} 
+                    onChange={setValue3} 
+                >
+                    <Field 
+                        placeholder="请输入详细地址" 
                     />
-                    <Popup
-                        round
-                        visible={showPicker}
-                        position="bottom"
-                        onClose={() => setShowPicker(false)}
-                    >
-                        <Picker
-                            title="标题"
-                            onConfirm={(value) => {
-                                setFieldValue(value);
-                                setShowPicker(false);
-                            }}
-                            columnsFieldNames={columnsFieldNames}
-                            columns={columns}
-                        />
-                    </Popup>
                 </Form.Item>
-                <Form.Item required>
-                    <Field value={value2} label="详细地址" onChange={setValue2} />
-                </Form.Item>
+                
             </Form>
         </div>
     );

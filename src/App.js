@@ -1,9 +1,12 @@
 import './App.css';
 import RouteConfig from './routes/route'
 import { BrowserRouter } from 'react-router-dom';
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
+import useAutoLogout from './hooks/useAutoLogout';
 
 function App() {
+  //创建一个useEffect，用来处理登录状态
+  useAutoLogout();
   return (
     <div className="App">
         <BrowserRouter>

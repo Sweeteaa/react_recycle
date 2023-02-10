@@ -12,14 +12,16 @@ const authSlice = createSlice({
             return{
                 isLogged:false,
                 token:null,
-                data:null
+                data:null,
+                expirationTime:0 //登录状态失效时间
             }
         }
         
         return{
             isLogged:true,
             token,
-            data:JSON.parse(localStorage.getItem('data'))
+            data:JSON.parse(localStorage.getItem('data')),
+            expirationTime:+localStorage.getItem('expirationTime')
         }
 
     },
@@ -28,9 +30,16 @@ const authSlice = createSlice({
             state.isLogged = true;
             state.token = action.payload.token;
             state.data = action.payload.data;
+            //获取当前时间戳
+            const currentTime = Date.now();
+            //设置登录有效时间
+            const timeout = 1000 * 60 * 60 * 24 * 7; //一周
+            // const timeout = 10000 ; //test 10s
+            state.expirationTime = currentTime + timeout; //设置失效日期
 
             localStorage.setItem('token', state.token);
             localStorage.setItem('data',JSON.stringify(state.data))
+            localStorage.setItem('expirationTime', state.expirationTime + "")
         },
         logout(state, action){
             state.isLogged = false;
@@ -39,7 +48,8 @@ const authSlice = createSlice({
 
             
             localStorage.removeItem('token');
-            localStorage.removeItem('data')
+            localStorage.removeItem('data');
+            localStorage.removeItem('expirationTime')
         }
     }
 })
