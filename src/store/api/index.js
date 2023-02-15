@@ -2,7 +2,6 @@
 
 import axios from "axios";
 
-
 let http ={
     post: function(url,params){
         params = params || {};
@@ -24,21 +23,20 @@ let http ={
         })
     },
 
-    get: function(url,params){
-        params = params || {};
+    get: function(url,param){
+        // params = params || {};
         return new Promise((resolve, reject)=>{
             axios({
                 method:'get',
                 url:url,
-                data:params,
-                headers:{'Content-Type':'application/x-www-form-urlencoded'}
+                data:{username:param},
             })
             .then((res)=>{
-                resolve(res);
-                console.log(res);
+                // console.log(res.data.data);
+                resolve(res.data.data)
             })
             .catch((error)=>{
-                reject(error);
+                reject(error)
                 console.log(error);
             })
         })

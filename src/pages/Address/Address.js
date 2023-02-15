@@ -1,6 +1,9 @@
+import axios from 'axios';
 import React,{useRef, useState} from 'react';
+import { useSelector } from 'react-redux';
 import { Field, Popup, Picker, Form, Button } from 'react-vant';
 import Go from '../../components/Go/Go';
+import { add,get } from '../../store/api/address';
 import classes from './Address.module.css'
 
 const columns = [
@@ -76,15 +79,36 @@ function PickerItem(props) {
   
 
 const Address = () => {
+    const auth = useSelector(state => state.auth)
     const [value, setValue] = useState('');
     const [value2, setValue2] = useState('');
     const [value3, setValue3] = useState('');
 
     const [form] = Form.useForm();
 
+
     const onFinish = (values) => {
       console.log('form submit', values);
+      let arr = ''
+      for (let i of values.city){
+        arr+= i + '-'
+      }
+      let params = {
+        name:values.username,
+        phone:values.phone,
+        city:arr,
+        detail:values.detail,
+        username:auth.data.username
+      }
+      // console.log(arr)
+      add(params)
+      // return values
     };
+    
+    // const submitHandler = (e)=>{
+    //   e.preventDefault();
+    //   add(...onFinish)
+    // }
 
     return (
         <div>
@@ -99,6 +123,7 @@ const Address = () => {
                             nativeType="submit" 
                             type="primary" 
                             block color='#008080' 
+                            onClick={onFinish}
                             >
                             提交
                         </Button>

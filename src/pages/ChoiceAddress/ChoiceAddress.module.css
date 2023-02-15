@@ -4,51 +4,68 @@
     margin-left: 50rem;
 }
 
-.list{
+.out{
     width: 650rem;
     height: 200rem;
+    margin-bottom: 20rem;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
     border-radius: 30rem;
-    background-color: #fff;
+}
+
+.list{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.radio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80rem;
+}
+
 .people{
-    background-color: aqua;
+    /* background-color: aqua; */
     display: flex;
     width: 550rem;
     margin: 20rem 0;
+    justify-content: space-between;
 }
 
 .name{
-    background-color: blue;
-    font-size: 42rem;
+    /* background-color: blue; */
+    font-size: 38rem;
     margin: 0 10rem;
+    color: darkgray;
 }
 
 .phone{
-    background-color: blueviolet;
-    font-size: 42rem;
+    /* background-color: blueviolet; */
+    font-size: 38rem;
+    color: darkgray;
 }
 
 .address{
-    background-color: yellow;
+    /* background-color: yellow; */
     display: flex;
     width: 550rem;
 }
 
 .sample{
-    background-color: blue;
+    /* background-color: blue; */
     font-size: 36rem;
     margin: 0 10rem;
 }
 
 .detail{
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     font-size: 36rem;
 }
+
 
 .btn{
     width: 600rem;

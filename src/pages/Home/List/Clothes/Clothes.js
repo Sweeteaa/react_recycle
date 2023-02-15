@@ -3,17 +3,21 @@ import classes from './Clothes.module.css';
 import { Form, Image, DatePicker, Input, Selector, Button } from 'antd-mobile';
 import { RightOutline } from 'antd-mobile-icons';
 import dayjs from 'dayjs';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Go from '../../../../components/Go/Go';
 
 
-const Clothes = () => {
+const Clothes = (props) => {
     const onFinish = (values) => {
         // Dialog.alert({
         //   content: <pre>{JSON.stringify(values, null, 2)}</pre>,
         // })
         console.log(JSON.stringify(values))
     }
+
+    const {address} = useLocation()
+
+    console.log(address)
 
     return (
         <div className={classes.main}>
