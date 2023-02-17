@@ -1,0 +1,57 @@
+.all{
+    display: flex;
+    flex-direction: column;
+    background-color: #ce8888;
+    width: 650rem;
+    height: 250rem;
+    border-radius: 30rem;
+    margin: 20rem 50rem;
+    padding: 25rem;
+}
+
+.title{
+    height: 50rem;
+    font-size: 38rem;
+    font-weight: bold;
+    background-color: antiquewhite;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pic{
+    width: 130rem;
+    height: 130rem;
+    background-color: darkcyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weight{
+    width: 350rem;
+    background-color: rgb(66, 110, 45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35rem;
+}
+
+.weight::before{
+    content: '预估重量：';
+}
+
+.time{
+    background-color: darkslateblue;
+    display: flex;
+    justify-content: right;
+    color: darkgray;
+}
+
+.time::before{
+    content: '时间段：';
+    color: rgb(66, 66, 66);
+}

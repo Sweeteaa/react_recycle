@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import classes from './Clothes.module.css';
 import { Form, Image, DatePicker, Input, Selector, Button } from 'antd-mobile';
 import { RightOutline } from 'antd-mobile-icons';
 import dayjs from 'dayjs';
 import { Link, useLocation } from 'react-router-dom';
 import Go from '../../../../components/Go/Go';
+import useGetAddress from '../../../../hooks/useGetAddress';
 
 
 const Clothes = (props) => {
@@ -15,10 +16,9 @@ const Clothes = (props) => {
         console.log(JSON.stringify(values))
     }
 
-    const {address} = useLocation()
+    const x = useGetAddress()
 
-    console.log(address)
-
+    console.log(x.state)
     return (
         <div className={classes.main}>
             <Go/> 
@@ -46,7 +46,11 @@ const Clothes = (props) => {
                     } style={{width:'700rem',margin:'25rem'}}>
                     <Form.Item  label='地址' help='详情地址' rules={[{ required: true }]} required>
                         <div className={classes.address}>
-                            <Link to='/home/choice' className={classes.select}>请输入地址</Link>
+                            <Link to='/home/choice' className={classes.select}>
+                                {
+                                    x.state.address == {}?'请输入地址':x.state.address
+                                }
+                            </Link>
                             <div><RightOutline style={{color:'#C0C0C0'}}/></div>
                         </div>
                     </Form.Item>

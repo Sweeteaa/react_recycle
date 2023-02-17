@@ -24,7 +24,7 @@ const ChoiceAddress = () => {
             getList(res.data.data)
         });
     },[name])
-
+ 
     useEffect(() => {
         fetchData()
     }, [fetchData]);
@@ -42,7 +42,8 @@ const ChoiceAddress = () => {
                             item && 
                             <div className={classes.out}>
                                 <div className={classes.radio}>
-                                    <Link to={'/home/clothes'} state={{address:'111'}} ><Radio value={item.id} onChange={radioClick}></Radio></Link>
+                                    <Link to='/home/clothes' state={{address:`${item.name+' '+item.city+item.detail}`}}><Radio value={item.id} onChange={radioClick}></Radio></Link>
+                                    {/* <Link to='/home/clothes' state={{address:`${item.name+' '+item.city+item.detail}`}}>O</Link> */}
                                 </div>
                                 <div className={classes.list}>
                                     <div className={classes.people}>
