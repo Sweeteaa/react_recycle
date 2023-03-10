@@ -1,24 +1,45 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import classes from './Clothes.module.css';
-import { Form, Image, DatePicker, Input, Selector, Button } from 'antd-mobile';
+import { Form, Image, DatePicker, Selector, Button } from 'antd-mobile';
 import { RightOutline } from 'antd-mobile-icons';
 import dayjs from 'dayjs';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Go from '../../../../components/Go/Go';
 import useGetAddress from '../../../../hooks/useGetAddress';
+import { addOrder } from '../../../../store/api/order';
+import { useSelector } from 'react-redux';
+import useBackHome from '../../../../hooks/useBackHome';
 
-
+//衣物回收订单创建页面
 const Clothes = (props) => {
+    const name = useSelector(state => state.auth)
+    
+    //将填写好的信息传给后端
     const onFinish = (values) => {
         // Dialog.alert({
         //   content: <pre>{JSON.stringify(values, null, 2)}</pre>,
         // })
-        console.log(JSON.stringify(values))
+        
+        let params = {
+            username:name.data.username,
+            address:x.state.address,
+            timePeriod:values.date,
+            weight:values.weight[0],
+            Integral:20,
+            state:'first',
+            type:'clothes'
+        }
+        console.log(params)
+        addOrder(params)
+        // console.log(JSON.stringify(values))
     }
 
+    //从地址选择列表返回选择结果
     const x = useGetAddress()
 
     console.log(x.state)
+
+
     return (
         <div className={classes.main}>
             <Go/> 
@@ -40,15 +61,30 @@ const Clothes = (props) => {
                 <Form 
                     onFinish={onFinish}
                     footer={
-                        <Button block type='submit' color='primary' size='large'  shape='rounded' style={{'--background-color':'#008080'}}>
-                            提交
-                        </Button>
-                    } style={{width:'700rem',margin:'25rem'}}>
-                    <Form.Item  label='地址' help='详情地址' rules={[{ required: true }]} required>
+                            <Button 
+                                block 
+                                type='submit' 
+                                color='primary' 
+                                size='large'  
+                                shape='rounded' 
+                                style={{'--background-color':'#008080'}}
+                                onClick={onFinish}
+                            >
+                                提交
+                            </Button>
+                    } 
+                    style={{width:'700rem',margin:'25rem'}}
+                >
+                    <Form.Item  
+                        label='地址' 
+                        help='详情地址' 
+                        rules={[{ required: true }]} 
+                        required
+                    >
                         <div className={classes.address}>
                             <Link to='/home/choice' className={classes.select}>
                                 {
-                                    x.state.address == {}?'请输入地址':x.state.address
+                                    x.state === {} || x.state === null?'请输入地址':x.state.address
                                 }
                             </Link>
                             <div><RightOutline style={{color:'#C0C0C0'}}/></div>
@@ -69,14 +105,17 @@ const Clothes = (props) => {
                             }
                         </DatePicker>
                     </Form.Item>
-                    <Form.Item name='weight' label='回收衣物重量'>
+                    <Form.Item 
+                        name='weight' 
+                        label='回收衣物重量'
+                    >
                         <Selector
                             columns={3}
                             multiple
                             options={[
-                            { label: '8-20件', value: 'a' },
-                            { label: '20-60件', value: 'b' },
-                            { label: '60件+', value: 'c' },
+                                { label: '8-20件', value: '10kg' },
+                                { label: '20-60件', value: '40kg' },
+                                { label: '60件+', value: '60kg' },
                             ]}
                         />
                     </Form.Item>

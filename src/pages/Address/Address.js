@@ -6,6 +6,7 @@ import Go from '../../components/Go/Go';
 import { add,get } from '../../store/api/address';
 import classes from './Address.module.css'
 
+//新建地址页面
 const columns = [
     {
       cityName: '浙江',

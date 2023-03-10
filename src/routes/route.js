@@ -17,6 +17,8 @@ import Item from '../pages/Home/List/Item/Item';
 import Furniture from '../pages/Home/List/Furniture/Furniture';
 import Address from '../pages/Address/Address';
 import ChoiceAddress from '../pages/ChoiceAddress/ChoiceAddress';
+import UseDetail from '../pages/Use/UseDetail/UseDetail';
+import UseOrder from '../pages/Use/UseOrder/UseOrder';
 
 const route = () => {
     return (
@@ -29,6 +31,8 @@ const route = () => {
                 <Route path={"/home/choice"} element={<ChoiceAddress/>}></Route>
                 <Route path={"/home/address"} element={<Address/>}></Route>
             <Route path={"/use"} element={<Use/>}></Route>
+            <Route path={`/use/detail/:id`} element={<UseDetail/>}></Route>
+            <Route path={`/use/detail/:id/order`} element={<UseOrder/>}></Route>
             <Route path={"/mine"} element={<Mine/>}></Route>
                 <Route path={"/mine/logistics"} element={<LogisticsMsg/>}></Route>
                     <Route path={"/mine/logistics/no-recycle"} element={<NoRecycle/>}></Route>
