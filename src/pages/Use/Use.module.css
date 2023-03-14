@@ -1,6 +1,85 @@
+.top{
+    width: 670rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30rem 50rem;
+}
+
+
+.select:hover a{
+    display: inline-block;
+}
+
+.order{
+    width: 140rem;
+    height: 140rem;
+    background-color: cadetblue;
+    border-radius: 20rem;
+    font-size: 45rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order:hover{
+    background-color: rgb(53, 87, 88);
+    color: aliceblue;
+}
+
+.lead{
+    width: 450rem;
+    /* height: 140rem; */
+    /* position: relative; */
+    text-align: center;
+    font-size: 16rem;
+    background-color: rgb(235, 235, 235);
+    color: aliceblue;
+    border-radius: 10rem;
+    float: left;
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center; */
+    position: absolute;
+    top: 50rem;
+    left: 210rem;
+}
+.lead a{
+    /* display: block; */
+    display: none;
+    height: 40rem;
+    text-align: center;
+    line-height: 40rem;
+    border-radius: 10rem;
+}
+.lead a:hover{
+    background-color: rgb(185, 224, 208);
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.link{
+    /* width: 160px;
+    height: 40px; */
+    text-align: center;
+    line-height: 40rem;
+    border: none;
+    border-radius: 10rem;
+    font-size: 23rem;
+    color:darkcyan;
+    margin: 12rem;
+}
+
+.link:hover{
+    background-color: rgb(185, 224, 208);
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
 .title{
-    width: 600rem;
-    height: 180rem;
+    width: 470rem;
+    height: 140rem;
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -8,24 +87,25 @@
     font-size: 45rem;
     font-weight: bold;
     color: cadetblue;
-    border-radius: 30rem;
-    margin: 30rem 80rem;
+    border-radius: 20rem;
 }
 
 .list{
-    width: 750rem;
+    width: 680rem;
     height: 100%;
     /* background-color: #fff; */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 37rem;
+    
 }
 
 .item{
-    width: 350rem;
-    height: 400rem;
-    background-color: rgb(243, 237, 229);
+    width: 300rem;
+    height: 350rem;
+    background-color: rgb(238, 234, 221);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,7 +128,8 @@
 
 .name{
     margin-left: 40rem;
-    font-size: 32rem;
+    font-size: 34rem;
+    font-weight: bold;
     color: #333;
 }
 

@@ -3,7 +3,7 @@ import classes from './Clothes.module.css';
 import { Form, Image, DatePicker, Selector, Button } from 'antd-mobile';
 import { RightOutline } from 'antd-mobile-icons';
 import dayjs from 'dayjs';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Go from '../../../../components/Go/Go';
 import useGetAddress from '../../../../hooks/useGetAddress';
 import { addOrder } from '../../../../store/api/order';
@@ -34,10 +34,10 @@ const Clothes = (props) => {
         // console.log(JSON.stringify(values))
     }
 
-    //从地址选择列表返回选择结果
-    const x = useGetAddress()
+    //获取当前所在路由 以及 从地址选择列表返回选择结果
+    const x = useLocation()
 
-    console.log(x.state)
+    // console.log(x)
 
 
     return (
@@ -82,9 +82,10 @@ const Clothes = (props) => {
                         required
                     >
                         <div className={classes.address}>
-                            <Link to='/home/choice' className={classes.select}>
+                            <Link to='/home/choice' state={{path:x.pathname}} className={classes.select}>
                                 {
-                                    x.state === {} || x.state === null?'请输入地址':x.state.address
+                                    x.state === {} || x.state === null?'请输入地址':
+                                    x.state.address.name+x.state.address.city+x.state.address.detail
                                 }
                             </Link>
                             <div><RightOutline style={{color:'#C0C0C0'}}/></div>

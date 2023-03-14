@@ -50,9 +50,15 @@ const authSlice = createSlice({
             localStorage.removeItem('token');
             localStorage.removeItem('data');
             localStorage.removeItem('expirationTime')
+        },
+        update(state, action){
+            const {type, data} = action
+            state.data = data;
+
+            localStorage.setItem('data',JSON.stringify(state.data))
         }
     }
 })
 
-export const {login, logout} = authSlice.actions
+export const {login, logout, update} = authSlice.actions
 export const userReducer = authSlice.reducer

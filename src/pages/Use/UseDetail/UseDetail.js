@@ -1,11 +1,11 @@
 import React,{ useCallback, useState, useEffect } from 'react';
-import Go from '../../../components/Go/Go';
 import useGetItem from '../../../hooks/useGetItem'
 // import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { Image } from 'antd-mobile';
 import classes from './UseDetail.module.css'
 import { Link } from 'react-router-dom';
+import { LeftOutline } from 'antd-mobile-icons'
 
 // 换购物品详情界面
 const UseDetail = () => {
@@ -34,11 +34,11 @@ const UseDetail = () => {
     // console.log(list)
     return (
         <div>
-            <Go/>
+            <Link to={`/use`} className={classes.go}><LeftOutline fontSize={'40rem'} /></Link> 
             {
                 list.length !==0 &&
                     
-                <div>
+                <div className={classes.main}>
                     <div className={classes.img}>
                         <Image
                             key={list[0].id}

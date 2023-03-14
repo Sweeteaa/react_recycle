@@ -35,7 +35,7 @@ const NoRecycle = () => {
                 {
                     list.map(item=>
                         item.state == 'first' &&
-                        <div className={classes.all}>
+                        <div className={classes.all} key={item.id}>
                             <div className={classes.title}>{item.type}</div>
                             <div className={classes.main}>
                                 <div className={classes.pic}><img src='https://bpic.588ku.com/element_origin_min_pic/19/05/10/eebc84ba4b7a181030b0c570f73b1ee5.jpg' style={{height:'130rem',width:'130rem',borderRadius:'30rem'}}/></div>

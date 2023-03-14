@@ -1,10 +1,11 @@
 import React, { useEffect, useState,useCallback } from 'react';
 import Go from '../../components/Go/Go';
 import classes from './ChoiceAddress.module.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { Radio } from 'antd';
+import { createHashHistory } from "history";
 
 //地址选择
 
@@ -33,6 +34,10 @@ const ChoiceAddress = () => {
         setRadio(e.target.value)
     }
 
+    const address = useLocation()
+
+    // console.log(address)
+
     return (
         <div>
             <Go/>
@@ -40,9 +45,9 @@ const ChoiceAddress = () => {
                 {
                         list.map((item,index) => 
                             item && 
-                            <div className={classes.out}>
+                            <div className={classes.out} key={index}>
                                 <div className={classes.radio}>
-                                    <Link to='/home/clothes' state={{address:`${item.name+' '+item.city+item.detail}`}}><Radio value={item.id} onChange={radioClick}></Radio></Link>
+                                    <Link to={`${address.state.path}`} state={{address:item}}><Radio value={item.id} onChange={radioClick}></Radio></Link>
                                     {/* <Link to='/home/clothes' state={{address:`${item.name+' '+item.city+item.detail}`}}>O</Link> */}
                                 </div>
                                 <div className={classes.list}>

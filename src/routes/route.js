@@ -19,11 +19,17 @@ import Address from '../pages/Address/Address';
 import ChoiceAddress from '../pages/ChoiceAddress/ChoiceAddress';
 import UseDetail from '../pages/Use/UseDetail/UseDetail';
 import UseOrder from '../pages/Use/UseOrder/UseOrder';
+import NoGo from '../pages/Use/Order/NoGo/NoGo';
+import Going from '../pages/Use/Order/Going/Going';
+import UCommit from '../pages/Use/Order/UCommit/UCommit';
+import UAll from '../pages/Use/Order/UAll/UAll';
+import Main from '../pages/Use/Order/Main';
 
 const route = () => {
     return (
         <Routes>
             <Route path={"/"} element={<Home/>}></Route>
+            <Route path={"/home"} element={<Home/>}></Route>
                 <Route path={"/home/clothes"} element={<Clothes/>}></Route>
                 <Route path={"/home/book"} element={<Book/>}></Route>
                 <Route path={"/home/item"} element={<Item/>}></Route>
@@ -31,8 +37,13 @@ const route = () => {
                 <Route path={"/home/choice"} element={<ChoiceAddress/>}></Route>
                 <Route path={"/home/address"} element={<Address/>}></Route>
             <Route path={"/use"} element={<Use/>}></Route>
-            <Route path={`/use/detail/:id`} element={<UseDetail/>}></Route>
-            <Route path={`/use/detail/:id/order`} element={<UseOrder/>}></Route>
+                <Route path={`/use/detail/:id`} element={<UseDetail/>}></Route>
+                <Route path={`/use/detail/:id/order`} element={<UseOrder/>}></Route>
+                <Route path={"/mine/main"} element={<Main/>}></Route>
+                    <Route path={"/use/main/nogo"} element={<NoGo/>}></Route>
+                    <Route path={"/use/main/going"} element={<Going/>}></Route>
+                    <Route path={"/use/main/commit"} element={<UCommit/>}></Route>
+                    <Route path={"/use/main/all"} element={<UAll/>}></Route>
             <Route path={"/mine"} element={<Mine/>}></Route>
                 <Route path={"/mine/logistics"} element={<LogisticsMsg/>}></Route>
                     <Route path={"/mine/logistics/no-recycle"} element={<NoRecycle/>}></Route>

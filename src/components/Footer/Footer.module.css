@@ -26,6 +26,6 @@
     text-decoration: none;
 }
 
-.main :visited{
+.main :hover{
     color: rgb(54, 150, 102);
 }

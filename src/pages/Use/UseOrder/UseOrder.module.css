@@ -1,11 +1,100 @@
+.go{
+    width: 100%;
+    height: 170rem;
+    margin: 20rem;
+    color: rgb(83, 83, 83);    
+    position: relative;
+    top: 20rem;
+}
+
+.main{
+    background-color: rgb(240, 240, 221);
+    margin: 130rem 45rem;
+    border-radius: 30rem;
+    width: 650rem;    
+    position: relative;
+    top: 50rem;
+    /* height: 200rem; */
+}
+
+.address{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(240, 240, 221);
+    margin: 10rem 45rem;
+    border-radius: 30rem;
+    width: 650rem;
+    height: 200rem;
+    position: relative;
+    top: 50rem;
+}
+
+.null{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(240, 240, 221);
+    margin: 10rem 45rem;
+    border-radius: 30rem;
+    width: 650rem;
+    height: 200rem;
+    font-size: 40rem;
+    color: rgb(94, 73, 47);
+}
+
+.word{
+    /* margin-left: 40rem; */
+    width: 270rem;
+}
+
+.localicon{
+    font-size: 50rem;
+    color: cadetblue;
+}
+
+.righticon{
+    font-size: 32rem;
+    margin-top: 10rem;
+    color: #aaaaaa;
+}
+
+.userinfo{
+    width: 500rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2rem solid #aaaaaa;
+}
+
+.username{
+    font-size: 50rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.userphone{
+    font-size: 35rem;
+    color: gray;
+    line-height: 60rem;
+}
+
+.addressdetail{
+    width: 500rem;
+    font-size: 40rem;
+    color: #333;
+}
+
 .info{
     width: 720rem;
-    height: 240rem;
+    height: 250rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: #fff;
-    margin: 15rem;
+    margin: 30rem 15rem;
     border-radius: 30rem;
 }
 
@@ -35,13 +124,24 @@
     width: 180rem;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: end;
     justify-content: space-around;
 }
 
 .change button{
     width: 50rem;
     height: 40rem;
+    margin-bottom: 10rem;
+    background-color: rgb(184, 207, 207);
+    border: none;
+    border-radius: 10rem;
+    color: #fff;
+}
+
+.num{
+    margin-bottom: 13rem;
+    font-weight: bold;
+    font-size: 32rem;
 }
 
 .foot{
@@ -70,6 +170,17 @@
     border-radius: 50rem;
     border: none;
     background-color: cadetblue;
+    color: #fff;
+    font-size: 35rem;
+    margin-right: 20rem;
+}
+
+.nobtn{
+    width: 280rem;
+    height: 80rem;
+    border-radius: 50rem;
+    border: none;
+    background-color: rgb(154, 166, 167);
     color: #fff;
     font-size: 35rem;
     margin-right: 20rem;
