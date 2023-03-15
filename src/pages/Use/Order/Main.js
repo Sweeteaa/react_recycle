@@ -1,13 +1,16 @@
 import React from 'react';
 import classes from './Main.module.css'
 import { Link } from 'react-router-dom';
-import Go from '../../../components/Go/Go';
+import { LeftOutline } from "antd-mobile-icons";
 
 const Main = () => {
     return (
         <div className={classes.main}>
             <div className={classes.list}>
-                <div className={classes.top}><Go/></div>
+            <Link className={classes.top} to='/use'>
+                <LeftOutline fontSize={'40rem'} />
+                <div className={classes.topfont}>换购订单</div>
+            </Link>
                 <div className={classes.lead}>
                     <Link to='/use/main/nogo' className={classes.norecycle}>
                         待发货

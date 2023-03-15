@@ -9,6 +9,13 @@
     border-radius: 50rem;
 }
 
+.tlist{
+    color: darkcyan;
+    font-size: 36rem;
+    font-weight: bold;
+    margin: 40rem 20rem;
+}
+
 .pic{
     width: 150rem;
 }

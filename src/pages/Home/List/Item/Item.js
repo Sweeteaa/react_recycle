@@ -1,14 +1,69 @@
 import React from 'react';
 import classes from './Item.module.css'
-import { Form, Image, DatePicker, Input, Selector, Button } from 'antd-mobile'
-import dayjs from 'dayjs'
-import Go from '../../../../components/Go/Go';
+import { Form, Image, DatePicker, Selector, Button, Toast } from 'antd-mobile'
+import dayjs from 'dayjs';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RightOutline, LeftOutline } from 'antd-mobile-icons';
+import axios from 'axios';
 
 const Item = () => {
+    const name = useSelector(state => state.auth)
+    
+    const navigate = useNavigate();
+    //将填写好的信息传给后端
+    const onFinish = (values) => {
+        let inte = 0
+        if(values.weight[0] === "5kg"){
+            inte = 5
+        }else if(values.weight[0] === "12kg"){
+            inte = 15
+        }else{
+            inte = 25
+        }
+        let params = {
+            username:name.data.username,
+            address:`${x.state.address.city}-${x.state.address.detail}`,
+            timePeriod:values.date,
+            weight:values.weight[0],
+            Integral:inte,
+            state:'未回收',
+            type:'日用品'
+        }
+        return new Promise((resolve,reject) => {
+            axios({
+                  method:'post',
+                  url:`http://localhost:3001/user/order/addOrder`,
+                  data:params,
+                  headers:{'Content-Type':'application/x-www-form-urlencoded'}
+              })
+            .then((res) => {
+                resolve( res );
+                if(res.data.status !== 1){
+                    Toast.show({
+                        icon: 'loading',
+                        content: '加载中…',
+                    })
+                    navigate('/success',{replace:true})
+                }
+                console.log(res)
+            })
+            .catch((error) => {
+                reject( error );
+                console.log(error)
+            });
+        })
+        // console.log(JSON.stringify(values))
+    }
+
+    //获取当前所在路由 以及 从地址选择列表返回选择结果
+    const x = useLocation()
+
+    // console.log(x)
     return (
         <div>
             <div className={classes.main}>
-            <Go/> 
+            <Link className={classes.top} to='/home'><LeftOutline fontSize={'40rem'} /></Link>
             <div className={classes.step}>
                 <h2>回收步骤</h2>
                 <div>
@@ -21,17 +76,41 @@ const Item = () => {
                 </div>
             </div>
             <div>
-                可回收种类
+                回收流程
             </div>
             <div>
                 <Form 
+                    onFinish={onFinish}
                     footer={
-                        <Button block type='submit' color='primary' size='large'  shape='rounded' style={{'--background-color':'#008080'}}>
-                            提交
-                        </Button>
-                } style={{width:'700rem',margin:'25rem'}}>
-                    <Form.Item name='address' label='地址' help='详情地址' rules={[{ required: true }]}>
-                        <Input placeholder='请输入地址' />
+                            <Button 
+                                block 
+                                type='submit' 
+                                color='primary' 
+                                size='large'  
+                                shape='rounded' 
+                                style={{'--background-color':'#008080'}}
+                                onClick={onFinish}
+                            >
+                                提交
+                            </Button>
+                    } 
+                    style={{width:'700rem',margin:'25rem'}}
+                >
+                    <Form.Item  
+                        label='地址' 
+                        help='详情地址' 
+                        rules={[{ required: true }]} 
+                        required
+                    >
+                        <div className={classes.address}>
+                            <Link to='/home/choice' state={{path:x.pathname}} className={classes.select}>
+                                {
+                                    x.state === {} || x.state === null?'请输入地址':
+                                    x.state.address.name+x.state.address.city+x.state.address.detail
+                                }
+                            </Link>
+                            <div><RightOutline style={{color:'#C0C0C0'}}/></div>
+                        </div>
                     </Form.Item>
                     <Form.Item
                         name='date'
@@ -48,22 +127,22 @@ const Item = () => {
                             }
                         </DatePicker>
                     </Form.Item>
-                    <Form.Item name='weight' label='回收日用品重量'>
+                    <Form.Item name='weight' label='回收日用品数量'>
                         <Selector
                             columns={3}
                             multiple
                             options={[
-                            { label: '8-20件', value: '1' },
-                            { label: '20-60件', value: '2' },
-                            { label: '60件+', value: '3' },
+                                { label: '0-6件', value: '5kg' },
+                                { label: '6-20件', value: '12kg' },
+                                { label: '20件+', value: '20kg' },
                             ]}
                         />
                     </Form.Item>
                 </Form>
             </div>
         </div>
-        </div>
-    );
+    </div>
+    )
 };
 
 export default Item;

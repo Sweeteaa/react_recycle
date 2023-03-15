@@ -1,11 +1,19 @@
+.title{
+    font-size: 32rem;
+    font-weight: bold;
+    margin: 20rem;
+    color: gray;
+    border-bottom: 2rem solid rgb(204, 204, 204);
+}
+
 .list{
-    height: 120rem;
+    height: 200rem;
     width: 650rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     border-radius: 20rem;
-    margin: 20rem 40rem;
+    margin: 20rem 50rem;
     background-color: rgb(255, 255, 255);
 }
 

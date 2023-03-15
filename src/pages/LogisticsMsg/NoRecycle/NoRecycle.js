@@ -14,7 +14,7 @@ const NoRecycle = () => {
     const fetchData = useCallback(async () => {
         await axios({
             method:'get',
-            url:'http://localhost:3001/user/order/getOrder',
+            url:`http://localhost:3001/user/order/getOrder/${name.data.username}`,
             data:{username:name},
         }).then((res) => {
             // console.log('res', res.data.data);
@@ -34,7 +34,7 @@ const NoRecycle = () => {
             <div>
                 {
                     list.map(item=>
-                        item.state == 'first' &&
+                        item.state === '未回收' &&
                         <div className={classes.all} key={item.id}>
                             <div className={classes.title}>{item.type}</div>
                             <div className={classes.main}>

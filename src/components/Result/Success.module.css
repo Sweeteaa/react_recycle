@@ -1,0 +1,5 @@
+.adm-button:not(.adm-button-default) {
+    --text-color: var(--adm-color-white);
+    --background-color: cadetblue !important;
+    --border-color: var(--color);
+}

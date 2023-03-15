@@ -24,8 +24,8 @@
 .top{
     width: 100%;
     height: 70rem;
-    display: flex;
-    align-items: center;
+    margin: 20rem;
+    color: rgb(83, 83, 83);
 }
 
 .lead{

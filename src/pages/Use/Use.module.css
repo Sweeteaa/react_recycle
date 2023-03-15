@@ -1,9 +1,13 @@
 .top{
-    width: 670rem;
+    width: 750rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 30rem 50rem;
+    /* margin: 30rem 50rem; */
+    /* width: 30%; */
+    height: 300rem;
+    border-radius: 0 0 100rem 100rem;
+    background-color: rgb(158, 193, 194);
 }
 
 

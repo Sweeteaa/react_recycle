@@ -1,36 +1,66 @@
 import React from 'react';
 import classes from './Clothes.module.css';
-import { Form, Image, DatePicker, Selector, Button } from 'antd-mobile';
-import { RightOutline } from 'antd-mobile-icons';
+import { Form, Image, DatePicker, Selector, Button, Toast } from 'antd-mobile';
+import { RightOutline, LeftOutline } from 'antd-mobile-icons';
 import dayjs from 'dayjs';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Go from '../../../../components/Go/Go';
-import useGetAddress from '../../../../hooks/useGetAddress';
-import { addOrder } from '../../../../store/api/order';
 import { useSelector } from 'react-redux';
-import useBackHome from '../../../../hooks/useBackHome';
+import axios from 'axios';
 
 //衣物回收订单创建页面
 const Clothes = (props) => {
     const name = useSelector(state => state.auth)
+
+    const navigate = useNavigate();
     
     //将填写好的信息传给后端
     const onFinish = (values) => {
         // Dialog.alert({
         //   content: <pre>{JSON.stringify(values, null, 2)}</pre>,
         // })
-        
+        let inte = 0
+        if(values.weight[0] === "10kg"){
+            inte = 10
+        }else if(values.weight[0] === "40kg"){
+            inte = 20
+        }else{
+            inte = 30
+        }
         let params = {
             username:name.data.username,
-            address:x.state.address,
+            address:`${x.state.address.city}-${x.state.address.detail}`,
             timePeriod:values.date,
             weight:values.weight[0],
-            Integral:20,
-            state:'first',
-            type:'clothes'
+            Integral:inte,
+            state:'未回收',
+            type:'衣服'
         }
-        console.log(params)
-        addOrder(params)
+        // console.log(params)
+        // addOrder(params)
+        return new Promise((resolve,reject) => {
+            axios({
+                  method:'post',
+                  url:`http://localhost:3001/user/order/addOrder`,
+                  data:params,
+                  headers:{'Content-Type':'application/x-www-form-urlencoded'}
+              })
+            .then((res) => {
+                resolve( res );
+                if(res.data.status !== 1){
+                    Toast.show({
+                        icon: 'loading',
+                        content: '加载中…',
+                    })
+                    navigate('/success',{replace:true})
+                }
+                console.log(res)
+            })
+            .catch((error) => {
+                reject( error );
+                console.log(error)
+            });
+        })
         // console.log(JSON.stringify(values))
     }
 
@@ -42,7 +72,7 @@ const Clothes = (props) => {
 
     return (
         <div className={classes.main}>
-            <Go/> 
+            <Link className={classes.top} to='/home'><LeftOutline fontSize={'40rem'} /></Link>
             <div className={classes.step}>
                 <h2>回收步骤</h2>
                 <div>
@@ -102,7 +132,7 @@ const Clothes = (props) => {
                     >
                         <DatePicker>
                             {value =>
-                                value ? dayjs(value).format('YYYY-MM-DD') : '请选择日期'
+                                value ? dayjs(value).format('YYYY-MM-DD HH:mm:ss') : '请选择日期'
                             }
                         </DatePicker>
                     </Form.Item>
@@ -114,9 +144,9 @@ const Clothes = (props) => {
                             columns={3}
                             multiple
                             options={[
-                                { label: '8-20件', value: '10kg' },
-                                { label: '20-60件', value: '40kg' },
-                                { label: '60件+', value: '60kg' },
+                                { label: '8-20件', value: '10kg', index:1},
+                                { label: '20-60件', value: '40kg', index:2 },
+                                { label: '60件+', value: '60kg', index:3 },
                             ]}
                         />
                     </Form.Item>

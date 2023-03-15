@@ -1,13 +1,13 @@
 import React from 'react';
-import Back from '../../components/Back/Back';
 import classes from './LogisticsMsg.module.css'
 import { Link } from 'react-router-dom';
+import { LeftOutline } from "antd-mobile-icons";
 
 const LogisticsMsg = () => {
     return (
         <div className={classes.main}>
             <div className={classes.list}>
-                <div className={classes.top}><Back/></div>
+                <Link className={classes.top} to='/mine'><LeftOutline fontSize={'40rem'} /></Link>
                 <div className={classes.lead}>
                     <Link to='/mine/logistics/no-recycle' className={classes.norecycle}>
                         待回收

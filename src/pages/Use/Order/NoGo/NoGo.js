@@ -24,7 +24,7 @@ const NoGo = () => {
         fetchData()
     }, [fetchData]);
 
-    console.log(list)
+    // console.log(list)
 
     return (
         <div className={classes.outside}>
@@ -32,7 +32,7 @@ const NoGo = () => {
             <div>
                 {
                     list.map(item=>
-                        item.state === 'nogo' &&
+                        item.state === '未发货' &&
                         <div className={classes.all} key={item.id}>
                             <div className={classes.title}>{item.name}</div>
                             <div className={classes.main}>

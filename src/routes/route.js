@@ -24,6 +24,7 @@ import Going from '../pages/Use/Order/Going/Going';
 import UCommit from '../pages/Use/Order/UCommit/UCommit';
 import UAll from '../pages/Use/Order/UAll/UAll';
 import Main from '../pages/Use/Order/Main';
+import SResult from '../pages/Success/SResult';
 
 const route = () => {
     return (
@@ -51,6 +52,7 @@ const route = () => {
                     <Route path={"/mine/logistics/commit"} element={<Commit/>}></Route>
                     <Route path={"/mine/logistics/all"} element={<All/>}></Route>
             <Route path={"/author"} element={<Author/>}></Route>
+            <Route path={"/success"} element={<SResult/>}></Route>
         </Routes>
     );
 };

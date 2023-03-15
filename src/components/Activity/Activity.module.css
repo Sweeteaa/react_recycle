@@ -1,13 +1,39 @@
+.allpic{
+    margin: 40rem 50rem;
+    width: 650rem;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #fff;
+    padding: 30rem;
+    border-radius: 20rem;
+}
+
+.pic{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .pic img{
     width: 260rem;
     height: 140rem;
     border-radius: 20rem;
 }
 
-.allpic{
-    margin: 40rem 100rem;
-    width: 560rem;
+.detail{
+    width: 300rem;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
 }
+
+.title{
+    font-size: 32rem;
+    font-weight: bold;
+    margin-left: 5rem;
+}
+
+

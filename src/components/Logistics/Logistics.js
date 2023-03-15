@@ -6,6 +6,7 @@ import { FolderOutline, MessageOutline, TruckOutline, MoreOutline } from 'antd-m
 const Logistics = () => {
     return (
         <div className={classes.list}>
+                <div className={classes.title}>旧物回收订单</div>
                 <div className={classes.lead}>
                     <Link to='/mine/logistics/no-recycle' className={classes.norecycle}>
                         <FolderOutline fontSize={'45rem'}/>

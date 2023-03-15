@@ -1,0 +1,74 @@
+.outside{
+    /* overflow: hidden; */
+    position: absolute;
+    top: 170rem;
+}
+
+.all{
+    display: flex;
+    flex-direction: column;
+    background-color: #eede97;
+    width: 650rem;
+    height: 250rem;
+    border-radius: 30rem;
+    margin: 20rem 50rem;
+    padding: 25rem;
+}
+
+.title{
+    height: 40rem;
+    font-size: 38rem;
+    font-weight: bold;
+    margin-bottom: 10rem;
+    border-bottom: 2rem solid #bb9c37;
+    color: rgb(82, 40, 10);
+    /* background-color: antiquewhite; */
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pic{
+    width: 130rem;
+    height: 130rem;
+    /* background-color: darkcyan; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weight{
+    width: 350rem;
+    /* background-color: rgb(66, 110, 45); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35rem;
+}
+
+.weight::before{
+    content: '预估重量：';
+    font-size: 35rem;
+}
+
+.time{
+    /* background-color: darkslateblue; */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    color: darkgray;
+    font-size: 28rem;
+    text-align: center;
+}
+
+.time::before{
+    content: '预定时间：';
+    color: rgb(66, 66, 66);
+    font-size: 28rem;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}

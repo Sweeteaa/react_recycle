@@ -24,8 +24,19 @@
 .top{
     width: 100%;
     height: 70rem;
+    margin: 10rem;
+    color: rgb(83, 83, 83);
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+}
+
+.topfont{
+    width: 460rem;
+    color: #fff;
+    font-size: 40rem;
+    font-weight: bold;
 }
 
 .lead{
