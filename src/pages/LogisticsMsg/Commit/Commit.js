@@ -34,10 +34,16 @@ const Commit = () => {
                     list.map(item=>
                         item.state === '待评价' &&
                         <div className={classes.all} key={item.id}>
-                            <div className={classes.title}>{item.type}</div>
+                            <div className={classes.top}>
+                                <div className={classes.title}>{item.type}</div>
+                                <div>订单状态：{item.state}</div>
+                            </div>
                             <div className={classes.main}>
                                 <div className={classes.pic}><img src='https://bpic.588ku.com/element_origin_min_pic/19/05/10/eebc84ba4b7a181030b0c570f73b1ee5.jpg' style={{height:'130rem',width:'130rem',borderRadius:'30rem'}}/></div>
-                                <div className={classes.weight}>{item.weight}</div>
+                                <div className={classes.detail}>
+                                    <div className={classes.weight}>{item.weight}</div>
+                                    <div className={classes.inte}>{item.Integral}</div>
+                                </div>
                             </div>
                             <div className={classes.time}>{item.timePeriod}</div>
                         </div>

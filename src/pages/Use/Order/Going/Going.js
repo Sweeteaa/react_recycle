@@ -31,6 +31,11 @@ const Going = () => {
             <Main/>
             <div>
                 {
+                    (list === null || list === undefined) &&
+                    <div>暂无订单信息~</div>
+                }
+                {
+                    !(list === null || list === undefined) &&
                     list.map(item=>
                         item.state === '运输中' &&
                         <div className={classes.all} key={item.id}>

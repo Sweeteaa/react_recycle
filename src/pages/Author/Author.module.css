@@ -3,6 +3,15 @@
 	margin:0;
 }
 
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: cadetblue;
+    position: relative;
+    top: -40rem;
+}
+
 .form{
     width: 500rem;
     height: 500rem;
@@ -18,24 +27,46 @@
     align-items: center;
 }
 
+.name{
+    width: 600rem;
+    height: 120rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50rem;
+    font-size: 34rem;
+}
+
 .name input{
-    width: 450rem;
+    width: 420rem;
     height: 80rem;
     border-top: none;
     border-left: none;
     border-right: none;
     font-size: 35rem;
-    background-color: #fffff0;
+}
+
+.psw{
+    width: 600rem;
+    height: 120rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50rem;
+    font-size: 34rem;
 }
 
 .psw input{
-    width: 450rem;
+    width: 420rem;
     height: 80rem;
     border-top: none;
     border-left: none;
     border-right: none;
     font-size: 35rem;
-    background-color: #fffff0;
 }
 
 .btn{
@@ -45,9 +76,12 @@
     border-radius: 20rem;
     font-size: 35rem;
     font-weight: bold;
+    background-color: cadetblue;
+    color: #fff;
 }
 
 .sign{
+    margin-top: 30rem;
     text-decoration: none;
     color: cadetblue;
     font-size: 28rem;

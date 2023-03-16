@@ -1,0 +1,19 @@
+.main{
+    width: 700rem;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    margin-left: 30rem;
+}
+
+.module{
+    width: 300rem;
+    height: 150rem;
+    background-color: #fff;
+    margin: 0 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20rem;
+}

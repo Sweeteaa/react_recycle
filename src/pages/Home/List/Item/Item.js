@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './Item.module.css'
 import { Form, Image, DatePicker, Selector, Button, Toast } from 'antd-mobile'
 import dayjs from 'dayjs';
@@ -11,6 +11,10 @@ const Item = () => {
     const name = useSelector(state => state.auth)
     
     const navigate = useNavigate();
+
+    //控制积分显示
+    const [show, setShow] = useState(false)
+    const [integral, setIntegral] = useState(0)
     //将填写好的信息传给后端
     const onFinish = (values) => {
         let inte = 0
@@ -28,7 +32,8 @@ const Item = () => {
             weight:values.weight[0],
             Integral:inte,
             state:'未回收',
-            type:'日用品'
+            type:'日用品',
+            audit:false
         }
         return new Promise((resolve,reject) => {
             axios({
@@ -130,14 +135,35 @@ const Item = () => {
                     <Form.Item name='weight' label='回收日用品数量'>
                         <Selector
                             columns={3}
-                            multiple
+                            multiple={false}
                             options={[
                                 { label: '0-6件', value: '5kg' },
                                 { label: '6-20件', value: '12kg' },
                                 { label: '20件+', value: '20kg' },
                             ]}
+                            onChange={(value)=>{
+                                if(value[0] === undefined){
+                                    setShow(false)
+                                }else{
+                                    setShow(true)
+                                }
+                                // console.log(value[0])
+                                if(value[0] === '5kg'){
+                                    setIntegral(5)
+                                }else if(value[0] === '12kg'){
+                                    setIntegral(15)
+                                }else{
+                                    setIntegral(25)
+                                }
+                            }}
                         />
                     </Form.Item>
+                    <div>
+                        {
+                            show && 
+                            <div className={classes.inte}>预计可获得积分：{integral}</div>
+                        }
+                    </div>
                 </Form>
             </div>
         </div>

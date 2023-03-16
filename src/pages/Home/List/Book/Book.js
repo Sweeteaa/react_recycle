@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './Book.module.css'
 import { Form, Image, DatePicker, Selector, Button, Toast } from 'antd-mobile'
 import { RightOutline, LeftOutline } from 'antd-mobile-icons';
@@ -11,6 +11,10 @@ const Book = () => {
     const name = useSelector(state => state.auth)
     const navigate = useNavigate();
     
+    //控制积分提示
+    const [show, setShow] = useState(false)
+    const [integral, setIntegral] = useState(0)
+
     //将填写好的信息传给后端
     const onFinish = (values) => {
         let inte = 0
@@ -28,7 +32,8 @@ const Book = () => {
             weight:values.weight[0],
             Integral:inte,
             state:'未回收',
-            type:'书籍'
+            type:'书籍',
+            audit:false
         }
         // console.log(params)
         return new Promise((resolve,reject) => {
@@ -131,14 +136,35 @@ const Book = () => {
                     <Form.Item name='weight' label='回收书本重量'>
                         <Selector
                             columns={3}
-                            multiple
+                            multiple={false}
                             options={[
-                            { label: '8-20本', value: '10kg' },
-                            { label: '20-60本', value: '30kg' },
-                            { label: '60本+', value: '50kg' },
+                                { label: '8-20本', value: '10kg' },
+                                { label: '20-60本', value: '30kg' },
+                                { label: '60本+', value: '50kg' },
                             ]}
+                            onChange={(value)=>{
+                                if(value[0] === undefined){
+                                    setShow(false)
+                                }else{
+                                    setShow(true)
+                                }
+                                // console.log(value[0])
+                                if(value[0] === '10kg'){
+                                    setIntegral(10)
+                                }else if(value[0] === '30kg'){
+                                    setIntegral(20)
+                                }else{
+                                    setIntegral(30)
+                                }
+                            }}
                         />
                     </Form.Item>
+                    <div>
+                        {
+                            show && 
+                            <div className={classes.inte}>预计可获得积分：{integral}</div>
+                        }
+                    </div>
                 </Form>
             </div>
         </div>

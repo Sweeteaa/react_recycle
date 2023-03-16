@@ -3,6 +3,78 @@
     height: 200rem;
 }
 
+.word{
+    /* margin-top: -70rem; */
+    position: absolute;
+    top: 20rem;
+    font-size: 38rem;
+    width: 185rem;
+    height: 185rem;
+    background-color: rgb(154, 211, 154);
+    color: #fff;
+    border-radius: 100rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 5rem;
+    margin: 20rem;
+    font-weight: bold;
+}
+
+.green{
+    position: absolute;
+    top: 20rem;
+    right: 30rem;
+    font-size: 32rem;
+    width: 100rem;
+    height: 100rem;
+    background-color: rgb(93, 163, 93);
+    color: #fff;
+    border-radius: 70rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 5rem;
+    margin: 20rem;
+    font-weight: bold;
+}
+
+.recycle{
+    position: absolute;
+    top: 90rem;
+    right: 100rem;
+    font-size: 26rem;
+    width: 80rem;
+    height: 80rem;
+    background-color: rgb(65, 99, 65);
+    color: #fff;
+    border-radius: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 5rem;
+    margin: 20rem;
+    font-weight: bold;
+}
+
+.round{
+    position: absolute;
+    top: 130rem;
+    right: 10rem;
+    font-size: 60rem;
+    width: 110rem;
+    height: 110rem;
+    background-color: rgb(152, 194, 152);
+    color: #fff;
+    border-radius: 60rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 5rem;
+    margin: 20rem;
+    font-weight: bold;
+}
+
 .step{
     background-color: rgba(255, 255, 255, 0.8);
     margin: 30rem;
@@ -22,6 +94,11 @@
     font-size: 40rem;
     font-weight: bold;
     margin: 20rem;
+}
+
+.notice{
+    width: 680rem;
+    margin-left: 35rem;
 }
 
 .list{

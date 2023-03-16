@@ -151,3 +151,10 @@
     font-weight: bold;
     border-radius: 20rem;
 }
+
+.tips{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}

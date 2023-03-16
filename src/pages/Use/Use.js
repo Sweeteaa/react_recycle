@@ -26,6 +26,8 @@ const Use = () => {
         });
     },[auth])
 
+    // console.log(list)
+
     const updateIntegral = useCallback(async () => {
         await axios({
             method:'get',
@@ -87,7 +89,7 @@ const Use = () => {
                             <div className={classes.image}>
                                 <Image
                                     key={item.id}
-                                    src={item.img}
+                                    src={`${item.img}`}
                                     width={'200rem'}
                                     height={'200rem'}
                                     fit='cover'
@@ -118,6 +120,7 @@ const Use = () => {
             >
                 <ShopbagOutline fontSize={32}/>
             </FloatingBubble> */}
+            <div className={classes.tips}>未完待续，敬请等待......</div>
             <Footer/>
         </div>
     );

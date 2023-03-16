@@ -18,7 +18,7 @@ const ChoiceAddress = () => {
     const fetchData = useCallback(async () => {
         await axios({
             method:'get',
-            url:'http://localhost:3001/user/address/getAddress',
+            url:`http://localhost:3001/user/address/getAddress/${name.data.username}`,
             data:{username:name},
         }).then((res) => {
             // console.log('res', res.data.data);

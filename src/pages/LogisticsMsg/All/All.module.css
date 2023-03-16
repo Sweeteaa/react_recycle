@@ -9,10 +9,18 @@
     flex-direction: column;
     background-color: #eede97;
     width: 650rem;
-    height: 250rem;
+    height: 270rem;
     border-radius: 30rem;
     margin: 20rem 50rem;
     padding: 25rem;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2rem solid #bb9c37;
 }
 
 .title{
@@ -20,7 +28,6 @@
     font-size: 38rem;
     font-weight: bold;
     margin-bottom: 10rem;
-    border-bottom: 2rem solid #bb9c37;
     color: rgb(82, 40, 10);
     /* background-color: antiquewhite; */
 }
@@ -29,6 +36,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 10rem;
 }
 
 .pic{
@@ -40,6 +48,13 @@
     align-items: center;
 }
 
+.detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .weight{
     width: 350rem;
     /* background-color: rgb(66, 110, 45); */
@@ -47,11 +62,29 @@
     justify-content: center;
     align-items: center;
     font-size: 35rem;
+    font-weight: bold;
+    color: rgb(82, 40, 10);
 }
 
 .weight::before{
     content: '预估重量：';
+    font-size: 30rem;
+}
+
+.inte{
+    width: 350rem;
+    /* background-color: rgb(66, 110, 45); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 35rem;
+    font-weight: bold;
+    color: rgb(82, 40, 10);
+}
+
+.inte::before{
+    content: '可获得积分：';
+    font-size: 30rem;
 }
 
 .time{

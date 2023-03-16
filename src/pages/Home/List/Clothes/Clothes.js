@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './Clothes.module.css';
 import { Form, Image, DatePicker, Selector, Button, Toast } from 'antd-mobile';
 import { RightOutline, LeftOutline } from 'antd-mobile-icons';
@@ -12,14 +12,19 @@ import axios from 'axios';
 const Clothes = (props) => {
     const name = useSelector(state => state.auth)
 
+    const [show, setShow] = useState(false)
+    const [integral, setIntegral] = useState(0)
+
     const navigate = useNavigate();
+    //获取当前所在路由 以及 从地址选择列表返回选择结果
+    const x = useLocation()
     
     //将填写好的信息传给后端
+    let inte = 0
     const onFinish = (values) => {
         // Dialog.alert({
         //   content: <pre>{JSON.stringify(values, null, 2)}</pre>,
         // })
-        let inte = 0
         if(values.weight[0] === "10kg"){
             inte = 10
         }else if(values.weight[0] === "40kg"){
@@ -34,7 +39,8 @@ const Clothes = (props) => {
             weight:values.weight[0],
             Integral:inte,
             state:'未回收',
-            type:'衣服'
+            type:'衣服',
+            audit:false
         }
         // console.log(params)
         // addOrder(params)
@@ -63,9 +69,6 @@ const Clothes = (props) => {
         })
         // console.log(JSON.stringify(values))
     }
-
-    //获取当前所在路由 以及 从地址选择列表返回选择结果
-    const x = useLocation()
 
     // console.log(x)
 
@@ -142,14 +145,35 @@ const Clothes = (props) => {
                     >
                         <Selector
                             columns={3}
-                            multiple
+                            multiple={false}
                             options={[
                                 { label: '8-20件', value: '10kg', index:1},
                                 { label: '20-60件', value: '40kg', index:2 },
                                 { label: '60件+', value: '60kg', index:3 },
                             ]}
+                            onChange={(value)=>{
+                                if(value[0] === undefined){
+                                    setShow(false)
+                                }else{
+                                    setShow(true)
+                                }
+                                // console.log(value[0])
+                                if(value[0] === '10kg'){
+                                    setIntegral(10)
+                                }else if(value[0] === '40kg'){
+                                    setIntegral(20)
+                                }else{
+                                    setIntegral(30)
+                                }
+                            }}
                         />
                     </Form.Item>
+                    <div>
+                        {
+                            show && 
+                            <div className={classes.inte}>预计可获得积分：{integral}</div>
+                        }
+                    </div>
                 </Form>
             </div>
         </div>

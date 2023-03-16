@@ -2,11 +2,11 @@ import React, { useState, useCallback, useEffect }  from 'react';
 import { useSelector } from 'react-redux';
 import Go from '../../../components/Go/Go';
 // import useGetAddress from '../../../hooks/useGetAddress'
-import { Image } from 'antd-mobile';
+import { Image, Toast } from 'antd-mobile';
 import { LocationFill, RightOutline, LeftOutline } from 'antd-mobile-icons'
 import classes from './UseOrder.module.css'
 import axios from 'axios';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import { addUseOrder, updateIntegral } from '../../../store/api/UseOrder';
 
 
@@ -48,6 +48,8 @@ const UseOrder = (props) => {
     }, [fetchData,updateIntegral]);
 
 
+    //页面跳转
+    const navigate = useNavigate();
 
     // console.log(list[0])
 
@@ -89,6 +91,11 @@ const UseOrder = (props) => {
                 resolve( res );
                 if(res.data.status !== 1){
                     addUseOrder(params)
+                    Toast.show({
+                        icon: 'loading',
+                        content: '加载中…',
+                    })
+                    navigate('/result',{replace:true})
                 }
                 console.log(res)
             })
