@@ -19,12 +19,12 @@ const Furniture = () => {
     //将填写好的信息传给后端
     const onFinish = (values) => {
         let inte = 0
-        if(values.weight[0] === "10kg"){
-            inte = 20
-        }else if(values.weight[0] === "30kg"){
-            inte = 40
+        if(values.weight[0] === "5kg"){
+            inte = 4
+        }else if(values.weight[0] === "10kg"){
+            inte = 10
         }else{
-            inte = 70
+            inte = 28
         }
         let params = {
             username:name.data.username,
@@ -74,12 +74,12 @@ const Furniture = () => {
             <div className={classes.step}>
                 <h2>回收步骤</h2>
                 <div>
-                    <Image
+                    {/* <Image
                         src={'https://ts1.cn.mm.bing.net/th/id/R-C.09e387c5540697141685a5bf589c310a?rik=B6F8ajS0%2fz35rA&riu=http%3a%2f%2fimage.woshipm.com%2fwp-files%2f2019%2f04%2fuSEHnr2891lH3H7kLjIR.png!v.jpg&ehk=dV%2fFP5j6vwHIYs6MFqyXNXan%2beJsoNESHkofY51wsD8%3d&risl=&pid=ImgRaw&r=0'}
                         width={380}
                         height={24}
                         fit='cover'
-                    />
+                    /> */}
                 </div>
             </div>
             <div>
@@ -139,9 +139,9 @@ const Furniture = () => {
                             columns={3}
                             multiple={false}
                             options={[
-                                { label: '小型家具', value: '10kg' },
-                                { label: '中型家具', value: '30kg' },
-                                { label: '大型家具', value: '60kg' },
+                                { label: '1~3件', value: '5kg' },
+                                { label: '3~6件', value: '10kg' },
+                                { label: '6件+', value: '20kg' },
                             ]}
                             onChange={(value)=>{
                                 if(value[0] === undefined){
@@ -150,12 +150,12 @@ const Furniture = () => {
                                     setShow(true)
                                 }
                                 // console.log(value[0])
-                                if(value[0] === '10kg'){
-                                    setIntegral(20)
-                                }else if(value[0] === '30kg'){
-                                    setIntegral(40)
+                                if(value[0] === '5kg'){
+                                    setIntegral('4~8')
+                                }else if(value[0] === '10kg'){
+                                    setIntegral('10~20')
                                 }else{
-                                    setIntegral(70)
+                                    setIntegral('28+')
                                 }
                             }}
                         />

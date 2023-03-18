@@ -25,12 +25,12 @@ const Clothes = (props) => {
         // Dialog.alert({
         //   content: <pre>{JSON.stringify(values, null, 2)}</pre>,
         // })
-        if(values.weight[0] === "10kg"){
-            inte = 10
-        }else if(values.weight[0] === "40kg"){
-            inte = 20
+        if(values.weight[0] === "1kg"){
+            inte = 1
+        }else if(values.weight[0] === "5kg"){
+            inte = 5
         }else{
-            inte = 30
+            inte = 14
         }
         let params = {
             username:name.data.username,
@@ -79,12 +79,12 @@ const Clothes = (props) => {
             <div className={classes.step}>
                 <h2>回收步骤</h2>
                 <div>
-                    <Image
+                    {/* <Image
                         src={'https://ts1.cn.mm.bing.net/th/id/R-C.09e387c5540697141685a5bf589c310a?rik=B6F8ajS0%2fz35rA&riu=http%3a%2f%2fimage.woshipm.com%2fwp-files%2f2019%2f04%2fuSEHnr2891lH3H7kLjIR.png!v.jpg&ehk=dV%2fFP5j6vwHIYs6MFqyXNXan%2beJsoNESHkofY51wsD8%3d&risl=&pid=ImgRaw&r=0'}
                         width={380}
                         height={24}
                         fit='cover'
-                    />
+                    /> */}
                 </div>
             </div>
             <div>
@@ -147,9 +147,9 @@ const Clothes = (props) => {
                             columns={3}
                             multiple={false}
                             options={[
-                                { label: '8-20件', value: '10kg', index:1},
-                                { label: '20-60件', value: '40kg', index:2 },
-                                { label: '60件+', value: '60kg', index:3 },
+                                { label: '2~10件（1~5kg）', value: '1kg', index:1},
+                                { label: '10-20件（5~10kg）', value: '5kg', index:2 },
+                                { label: '20件以上（10kg）', value: '10kg', index:3 },
                             ]}
                             onChange={(value)=>{
                                 if(value[0] === undefined){
@@ -158,12 +158,12 @@ const Clothes = (props) => {
                                     setShow(true)
                                 }
                                 // console.log(value[0])
-                                if(value[0] === '10kg'){
-                                    setIntegral(10)
-                                }else if(value[0] === '40kg'){
-                                    setIntegral(20)
+                                if(value[0] === '1kg'){
+                                    setIntegral('1~4')
+                                }else if(value[0] === '5kg'){
+                                    setIntegral('5~10')
                                 }else{
-                                    setIntegral(30)
+                                    setIntegral('14+')
                                 }
                             }}
                         />

@@ -21,7 +21,7 @@ const Logistics = () => {
             url:`http://127.0.0.1:3001/chart/recycleorder/${'未回收'}`,
             data:params
         }).then((res) => {
-            console.log('res', res.data.data);
+            // console.log('res', res.data.data);
             getNR(res.data.data[0])
         });
     },[])

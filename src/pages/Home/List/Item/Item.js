@@ -18,12 +18,12 @@ const Item = () => {
     //将填写好的信息传给后端
     const onFinish = (values) => {
         let inte = 0
-        if(values.weight[0] === "5kg"){
+        if(values.weight[0] === "1kg"){
+            inte = 1
+        }else if(values.weight[0] === "5kg"){
             inte = 5
-        }else if(values.weight[0] === "12kg"){
-            inte = 15
         }else{
-            inte = 25
+            inte = 14
         }
         let params = {
             username:name.data.username,
@@ -72,12 +72,12 @@ const Item = () => {
             <div className={classes.step}>
                 <h2>回收步骤</h2>
                 <div>
-                    <Image
+                    {/* <Image
                         src={'https://ts1.cn.mm.bing.net/th/id/R-C.09e387c5540697141685a5bf589c310a?rik=B6F8ajS0%2fz35rA&riu=http%3a%2f%2fimage.woshipm.com%2fwp-files%2f2019%2f04%2fuSEHnr2891lH3H7kLjIR.png!v.jpg&ehk=dV%2fFP5j6vwHIYs6MFqyXNXan%2beJsoNESHkofY51wsD8%3d&risl=&pid=ImgRaw&r=0'}
                         width={380}
                         height={24}
                         fit='cover'
-                    />
+                    /> */}
                 </div>
             </div>
             <div>
@@ -137,9 +137,9 @@ const Item = () => {
                             columns={3}
                             multiple={false}
                             options={[
-                                { label: '0-6件', value: '5kg' },
-                                { label: '6-20件', value: '12kg' },
-                                { label: '20件+', value: '20kg' },
+                                { label: '4-10件', value: '1kg' },
+                                { label: '10-18件', value: '5kg' },
+                                { label: '18件+', value: '10kg' },
                             ]}
                             onChange={(value)=>{
                                 if(value[0] === undefined){
@@ -148,12 +148,12 @@ const Item = () => {
                                     setShow(true)
                                 }
                                 // console.log(value[0])
-                                if(value[0] === '5kg'){
-                                    setIntegral(5)
-                                }else if(value[0] === '12kg'){
-                                    setIntegral(15)
+                                if(value[0] === '1kg'){
+                                    setIntegral('1~4')
+                                }else if(value[0] === '5kg'){
+                                    setIntegral('5~10')
                                 }else{
-                                    setIntegral(25)
+                                    setIntegral('14+')
                                 }
                             }}
                         />
