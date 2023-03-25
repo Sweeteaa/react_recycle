@@ -1,0 +1,118 @@
+.outside{
+    /* overflow: hidden; */
+    position: absolute;
+    top: 170rem;
+}
+
+.all{
+    display: flex;
+    flex-direction: column;
+    background-color: #a6dab5;
+    width: 650rem;
+    height: 270rem;
+    border-radius: 30rem;
+    margin: 20rem 50rem;
+    padding: 25rem;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2rem solid #252928;
+}
+
+.title{
+    height: 40rem;
+    font-size: 38rem;
+    font-weight: bold;
+    margin-bottom: 10rem;
+    color: rgb(6, 20, 16);
+    /* background-color: antiquewhite; */
+}
+
+.state{
+    font-size: 35rem;
+    font-weight: bold;
+    /* margin-bottom: 10rem; */
+    color: rgb(2, 116, 83);
+}
+
+.state::before{
+    content: '订单状态：';
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10rem;
+}
+
+.pic{
+    width: 130rem;
+    height: 130rem;
+    /* background-color: darkcyan; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weight{
+    width: 350rem;
+    /* background-color: rgb(66, 110, 45); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35rem;
+    font-weight: bold;
+    color: rgb(2, 73, 44);
+}
+
+.weight::before{
+    content: '捐出数量：';
+    font-size: 30rem;
+}
+
+.inte{
+    width: 350rem;
+    /* background-color: rgb(66, 110, 45); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35rem;
+    font-weight: bold;
+    color: rgb(10, 82, 76);
+}
+
+.inte::before{
+    content: '可获得积分：';
+    font-size: 30rem;
+}
+
+.time{
+    /* background-color: darkslateblue; */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    color: rgb(133, 132, 132);
+    font-size: 28rem;
+    text-align: center;
+}
+
+.time::before{
+    content: '参与时间：';
+    color: rgb(29, 61, 50);
+    font-size: 28rem;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}

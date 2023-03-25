@@ -26,6 +26,13 @@ import UAll from '../pages/Use/Order/UAll/UAll';
 import Main from '../pages/Use/Order/Main';
 import SResult from '../pages/Success/SResult';
 import Result from '../pages/Use/Result/Result';
+import ActivityDetail from '../pages/Home/ActivityDetail/ActivityDetail';
+import ActivityOrder from '../pages/Home/ActivityDetail/ActivityOrder/ActivityOrder';
+import ActivityRes from '../components/Result/ActivityRes/ActivityRes';
+import ActivityOrderMsg from '../pages/Mine/ActivityOrderMsg/ActivityOrderMsg';
+import RecycleStep from '../pages/Home/Knowledege/RecycleStep/RecycleStep';
+import RecycleGo from '../pages/Home/Knowledege/RecycleGo/RecycleGo';
+import Handle from '../pages/Home/Knowledege/Handle/Handle';
 
 const route = () => {
     return (
@@ -38,6 +45,11 @@ const route = () => {
                 <Route path={"/home/furniture"} element={<Furniture/>}></Route>
                 <Route path={"/home/choice"} element={<ChoiceAddress/>}></Route>
                 <Route path={"/home/address"} element={<Address/>}></Route>
+                <Route path={"/home/activity/:id"} element={<ActivityDetail/>}></Route>
+                <Route path={"/home/activity/:id/order"} element={<ActivityOrder/>}></Route>
+                <Route path={"/home/step"} element={<RecycleStep/>}></Route>
+                <Route path={"/home/go"} element={<RecycleGo/>}></Route>
+                <Route path={"/home/handle"} element={<Handle/>}></Route>
             <Route path={"/use"} element={<Use/>}></Route>
                 <Route path={`/use/detail/:id`} element={<UseDetail/>}></Route>
                 <Route path={`/use/detail/:id/order`} element={<UseOrder/>}></Route>
@@ -52,9 +64,11 @@ const route = () => {
                     <Route path={"/mine/logistics/recycling"} element={<Recycling/>}></Route>
                     <Route path={"/mine/logistics/commit"} element={<Commit/>}></Route>
                     <Route path={"/mine/logistics/all"} element={<All/>}></Route>
+                <Route path={"/mine/activitymsg"} element={<ActivityOrderMsg/>}></Route>
             <Route path={"/author"} element={<Author/>}></Route>
             <Route path={"/success"} element={<SResult/>}></Route>
             <Route path={"/result"} element={<Result/>}></Route>
+            <Route path={"/activityres"} element={<ActivityRes/>}></Route>
         </Routes>
     );
 };

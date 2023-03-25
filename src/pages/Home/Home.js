@@ -32,7 +32,7 @@ const Home = () => {
                 <Image
                     src={step}
                     width={'98%'}
-                    height={'180rem'}
+                    height={'190rem'}
                     fit='contain'
                 />
             </div>

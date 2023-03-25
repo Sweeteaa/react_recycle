@@ -15,16 +15,17 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 10rem 0;
+    color: #333;
 }
 
 .pic img{
-    width: 260rem;
+    width: 240rem;
     height: 140rem;
     border-radius: 20rem;
 }
 
 .detail{
-    width: 300rem;
+    width: 320rem;
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -32,9 +33,8 @@
 }
 
 .title{
-    font-size: 32rem;
+    font-size: 36rem;
     font-weight: bold;
-    margin-left: 5rem;
 }
 
 

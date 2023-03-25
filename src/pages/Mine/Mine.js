@@ -10,6 +10,7 @@ import { logout } from '../../store/reducer/authSlice';
 import { Avatar } from 'antd-mobile'
 import { RightOutline } from 'antd-mobile-icons';
 import Footer from '../../components/Footer/Footer'
+import ActivityOrder from '../../components/ActivityOrder/ActivityOrder';
 
 const Mine = () => {
     const auth = useSelector(state => state.auth)
@@ -43,6 +44,7 @@ const Mine = () => {
             {/* 物流信息展示 */}
             <Logistics/>
             {/* 活动展示 */}
+            <ActivityOrder/>
             <div className={classes.tlist}><RightOutline fontSize={'40rem'} /><RightOutline fontSize={'40rem'} />回收活动</div>
             <Activity/>
             {/* 退出登录 islogged判断登录状态，true-登录、false-未登录 */}

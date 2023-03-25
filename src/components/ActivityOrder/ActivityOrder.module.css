@@ -1,0 +1,36 @@
+.main{
+    width: 640rem;
+    height: 200rem;
+    margin: 30rem 55rem;
+    /* background-color: #fff; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left{
+    width: 300rem;
+    height: 160rem;
+    background-color: rgb(143, 187, 172);
+    font-size: 36rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30rem;
+    color: #333;
+}
+
+.right{
+    width: 300rem;
+    height: 160rem;
+    background-color: rgb(162, 202, 197);
+    font-size: 38rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30rem;
+    color: #dfdfdf;
+}
