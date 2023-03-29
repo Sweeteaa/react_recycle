@@ -12,25 +12,27 @@
 .left{
     width: 300rem;
     height: 160rem;
-    background-color: rgb(143, 187, 172);
-    font-size: 36rem;
+    background-color: #fff;
+    font-size: 40rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     border-radius: 30rem;
-    color: #333;
+    color: rgb(91, 121, 113);
+    font-weight: bold;
 }
 
 .right{
     width: 300rem;
     height: 160rem;
-    background-color: rgb(162, 202, 197);
-    font-size: 38rem;
+    background-color: rgb(132, 199, 191);
+    font-size: 40rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     border-radius: 30rem;
-    color: #dfdfdf;
+    color: #fff;
+    font-weight: bold;
 }

@@ -41,12 +41,12 @@ const UCommit = () => {
                         <div className={classes.all} key={item.id}>
                             <div className={classes.title}>{item.name}</div>
                             <div className={classes.main}>
-                                <div className={classes.pic}><img src={item.img} style={{height:'130rem',width:'130rem',borderRadius:'30rem'}}/></div>
+                                <div className={classes.pic}><img alt="订单" src={item.img} style={{height:'130rem',width:'130rem',borderRadius:'30rem'}}/></div>
                                 <div className={classes.weight}>×{item.num}</div>
                             </div>
                             <div className={classes.time}>待评价</div>
                         </div>
-                    )
+                    ).reverse()
                 }
             </div>
         </div>

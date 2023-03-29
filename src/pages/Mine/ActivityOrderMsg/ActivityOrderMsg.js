@@ -44,9 +44,9 @@ const ActivityOrderMsg = () => {
                                     <div className={classes.weight}>{item.num}</div>
                                 </div>
                             </div>
-                            <div className={classes.time}>{item.timePeriod}</div>
+                            <div className={classes.time}>{item.timePeriod.replace("T16:00:00.000Z","")}</div>
                         </div>
-                    )
+                    ).reverse()
                 }
                 {
                     !list &&
