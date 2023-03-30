@@ -1,0 +1,21 @@
+.top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    width: 700rem;
+    background-color: #fff;
+    padding: 30rem 35rem;
+    margin: 20rem 22rem;
+    border-radius: 10rem;
+}
+
+.word{
+    font-size: 32rem;
+}
+
+h2{
+    color: darkcyan;
+}

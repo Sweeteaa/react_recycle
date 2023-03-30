@@ -8,6 +8,7 @@ import classes from './UseOrder.module.css'
 import axios from 'axios';
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import { addUseOrder, updateIntegral } from '../../../store/api/UseOrder';
+import useGetDay from '../../../hooks/useGetDay';
 
 
 const UseOrder = (props) => {
@@ -61,6 +62,7 @@ const UseOrder = (props) => {
     const address = useLocation()
 
     // console.log(address.state)
+    let date = useGetDay()
 
     //将填写好的信息传给后端
     const onFinish = (values) => {
@@ -75,6 +77,7 @@ const UseOrder = (props) => {
             cost:list[0].cost,
             state:'未发货',
             type:list[0].type,
+            addTime:date[0]
         }
         // console.log(integral.Integral - list[0].cost)
         let Integralnum = {
@@ -96,8 +99,13 @@ const UseOrder = (props) => {
                         content: '加载中…',
                     })
                     navigate('/result',{replace:true})
+                }else{
+                    Toast.show({
+                        icon: 'fail',
+                        content: '操作失败！',
+                    })
                 }
-                console.log(res)
+                // console.log(res)
             })
             .catch((error) => {
                 reject( error );
@@ -153,7 +161,7 @@ const UseOrder = (props) => {
             </Link>
             {
                 list[0] &&
-                <div>
+                <div  className={classes.infoo}>
                     <div className={classes.info}>
                         <div className={classes.img}>
                             <Image

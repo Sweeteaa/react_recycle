@@ -23,12 +23,10 @@
     justify-content: space-evenly;
     align-items: center;
     background-color: rgb(240, 240, 221);
-    margin: 10rem 45rem;
+    margin: 100rem 45rem;
     border-radius: 30rem;
     width: 650rem;
     height: 200rem;
-    position: relative;
-    top: 50rem;
 }
 
 .null{
@@ -87,6 +85,7 @@
     color: #333;
 }
 
+
 .info{
     width: 720rem;
     height: 250rem;
@@ -94,7 +93,7 @@
     flex-direction: row;
     justify-content: space-around;
     background-color: #fff;
-    margin: 30rem 15rem;
+    margin: 80rem 15rem;
     border-radius: 30rem;
 }
 

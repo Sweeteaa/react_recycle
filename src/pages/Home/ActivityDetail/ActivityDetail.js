@@ -32,28 +32,38 @@ const ActivityDetail = () => {
                 <div>
                     <Link className={classes.top} to='/home'><LeftOutline fontSize={'40rem'} /></Link>
                     <div className={classes.main}>
-                        <div>
-                            <Image 
-                                src={list[0].img}
-                                width={'100%'}
-                            />
-                        </div>
-                        <div className={classes.title}>
-                            {list[0].title}
-                        </div>
-                        <div className={classes.text}>
-                            <div className={classes.texttop}>
-                                活动详情
+                        <div className={classes.msg}>
+                            <div>
+                                <Image 
+                                    src={list[0].img}
+                                    width={'100%'}
+                                />
                             </div>
-                            <div className={classes.detail}>
-                                {list[0].main}
+                            <div className={classes.title}>
+                                {list[0].title}
+                            </div>
+                            <div className={classes.text}>
+                                <div className={classes.texttop}>
+                                    活动详情
+                                </div>
+                                <div className={classes.detail}>
+                                    {list[0].main.match(/(?<=(<p[^>]*?>)).*?(?=(<\/p>))/g)}
+                                </div>
                             </div>
                         </div>
                         <div className={classes.bottom}>
                             <div className={classes.bar}>
                                 <div>活动进度</div>
-                                <Progress
-                                    percent={list[0].progress / list[0].num}
+                                <ProgressBar
+                                    percent={list[0].progress / list[0].num * 100}
+                                    text
+                                    style={{
+                                        '--text-width': '80rem',
+                                        '--track-width': '24rem',
+                                        width: '620rem',
+                                        height: '50rem',
+                                        '--fill-color': 'cadetblue',
+                                    }}
                                 />
                             </div>
                             <Link to={`/home/activity/${list[0].id}/order`} state={{list:list[0]}}>

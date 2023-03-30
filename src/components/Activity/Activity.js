@@ -2,10 +2,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import classes from './Activity.module.css'
 import axios from 'axios';
 import { Ellipsis } from 'antd-mobile';
+import { UpOutline, DownOutline } from 'antd-mobile-icons';
 import { Link } from 'react-router-dom';
 
 const Activity = () => {
     const [list, getList] = useState()
+    const [show, setShow] = useState(false)
     //获取地址列表，hook
     const fetchData = useCallback(async () => {
         await axios({
@@ -30,7 +32,8 @@ const Activity = () => {
     }, [fetchData]);
 
     return (
-        <div className={classes.allpic}>
+        <>
+            <div className={show ?classes.allpi:classes.allpic}>
             {
                 (list === [] || list === undefined) &&
                 <div>暂无活动信息~敬请期待！</div>
@@ -54,9 +57,22 @@ const Activity = () => {
                             </div>
                         </div>
                     </Link>
-                )
+                    )
+                }
+            </div>
+            {
+                show &&
+                <div className={classes.open} onClick={()=>setShow(pre => !pre)}>
+                    收回<UpOutline />
+                </div>
             }
-        </div>
+            {
+                !show &&
+                <div className={classes.open} onClick={()=>setShow(pre => !pre)}>
+                    展开<DownOutline />
+                </div>
+            }
+        </>
     );
 };
 

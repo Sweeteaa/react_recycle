@@ -7,6 +7,7 @@ import dayjs from 'dayjs';
 import axios from 'axios';
 import classes from './ActivityOrder.module.css'
 import Go from '../../../../components/Go/Go';
+import useGetDay from '../../../../hooks/useGetDay';
 
 const ActivityOrder = () => {     
     const name = useSelector(state => state.auth)
@@ -17,6 +18,7 @@ const ActivityOrder = () => {
     const x = useLocation()
     // console.log(x)
     
+    let date = useGetDay()
     //将填写好的信息传给后端
     const onFinish = (values) => {
     let params = {
@@ -25,7 +27,8 @@ const ActivityOrder = () => {
         timePeriod:values.date,
         num:values.num,
         activityid:id,
-        state:'未回收'
+        state:'未回收',
+        addTime:date[0]
     }
     // console.log(params)
     return new Promise((resolve,reject) => {
@@ -43,6 +46,11 @@ const ActivityOrder = () => {
                     content: '加载中…',
                 })
                 navigate('/activityres',{replace:true})
+            }else{
+                Toast.show({
+                    icon: 'fail',
+                    content: '操作失败！',
+                })
             }
             console.log(res)
         })

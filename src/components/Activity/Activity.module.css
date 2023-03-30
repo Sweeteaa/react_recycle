@@ -1,4 +1,4 @@
-.allpic{
+.allpi{
     margin: 40rem 50rem;
     width: 650rem;
     display: flex;
@@ -6,9 +6,27 @@
     flex-direction: column;
     justify-content: space-evenly;
     background-color: #fff;
-    padding: 30rem;
-    border-radius: 20rem;
+    padding: 20rem 30rem;
+    border-top-right-radius: 20rem;
+    border-top-left-radius: 20rem;
 }
+
+.allpic{
+    margin: 40rem 50rem;
+    width: 650rem;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* flex-direction: column;
+    justify-content: space-evenly; */
+    background-color: #fff;
+    padding: 20rem 30rem;
+    border-top-right-radius: 20rem;
+    border-top-left-radius: 20rem;
+    height: 180rem;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar{display: none;}
 
 .pic{
     display: flex;
@@ -35,6 +53,21 @@
 .title{
     font-size: 36rem;
     font-weight: bold;
+}
+
+.open{
+    width: 650rem;
+    height: 50rem;
+    margin: 0 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -40rem;
+    margin-bottom: 50rem;
+    background-color: #fff;
+    font-size: 28rem;
+    border-bottom-left-radius: 20rem;
+    border-bottom-right-radius: 20rem;
 }
 
 

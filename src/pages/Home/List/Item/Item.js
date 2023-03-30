@@ -6,6 +6,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RightOutline, LeftOutline } from 'antd-mobile-icons';
 import axios from 'axios';
+import useGetDay from '../../../../hooks/useGetDay';
+import step from '../../../../assets/css/step.png'
 
 const Item = () => {
     const name = useSelector(state => state.auth)
@@ -15,12 +17,14 @@ const Item = () => {
     //控制积分显示
     const [show, setShow] = useState(false)
     const [integral, setIntegral] = useState(0)
+
+    let date = useGetDay()
     //将填写好的信息传给后端
     const onFinish = (values) => {
         let inte = 0
-        if(values.weight[0] === "1kg"){
+        if(values.weight[0] === "1"){
             inte = 1
-        }else if(values.weight[0] === "5kg"){
+        }else if(values.weight[0] === "5"){
             inte = 5
         }else{
             inte = 14
@@ -33,7 +37,8 @@ const Item = () => {
             Integral:inte,
             state:'未回收',
             type:'日用品',
-            audit:false
+            audit:false,
+            addTime:date[0]
         }
         return new Promise((resolve,reject) => {
             axios({
@@ -50,8 +55,13 @@ const Item = () => {
                         content: '加载中…',
                     })
                     navigate('/success',{replace:true})
+                }else{
+                    Toast.show({
+                        icon: 'fail',
+                        content: '操作失败！',
+                    })
                 }
-                console.log(res)
+                // console.log(res)
             })
             .catch((error) => {
                 reject( error );
@@ -81,7 +91,12 @@ const Item = () => {
                 </div>
             </div>
             <div>
-                回收流程
+                <Image
+                    src={step}
+                    width={'98%'}
+                    height={'110rem'}
+                    fit='contain'
+                />
             </div>
             <div>
                 <Form 
@@ -137,9 +152,9 @@ const Item = () => {
                             columns={3}
                             multiple={false}
                             options={[
-                                { label: '4-10件', value: '1kg' },
-                                { label: '10-18件', value: '5kg' },
-                                { label: '18件+', value: '10kg' },
+                                { label: '4-10件', value: '1' },
+                                { label: '10-18件', value: '5' },
+                                { label: '18件+', value: '10' },
                             ]}
                             onChange={(value)=>{
                                 if(value[0] === undefined){
@@ -148,9 +163,9 @@ const Item = () => {
                                     setShow(true)
                                 }
                                 // console.log(value[0])
-                                if(value[0] === '1kg'){
+                                if(value[0] === '1'){
                                     setIntegral('1~4')
-                                }else if(value[0] === '5kg'){
+                                }else if(value[0] === '5'){
                                     setIntegral('5~10')
                                 }else{
                                     setIntegral('14+')

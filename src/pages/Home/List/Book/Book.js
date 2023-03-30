@@ -6,6 +6,8 @@ import dayjs from 'dayjs'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import useGetDay from '../../../../hooks/useGetDay';
+import step from '../../../../assets/css/step.png'
 
 const Book = () => {
     const name = useSelector(state => state.auth)
@@ -15,12 +17,13 @@ const Book = () => {
     const [show, setShow] = useState(false)
     const [integral, setIntegral] = useState(0)
 
+    let date = useGetDay()
     //将填写好的信息传给后端
     const onFinish = (values) => {
         let inte = 0
-        if(values.weight[0] === "1kg"){
+        if(values.weight[0] === "1"){
             inte = 1
-        }else if(values.weight[0] === "5kg"){
+        }else if(values.weight[0] === "5"){
             inte = 5
         }else{
             inte = 14
@@ -33,7 +36,8 @@ const Book = () => {
             Integral:inte,
             state:'未回收',
             type:'书籍',
-            audit:false
+            audit:false,
+            addTime:date[0]
         }
         // console.log(params)
         return new Promise((resolve,reject) => {
@@ -51,6 +55,11 @@ const Book = () => {
                         content: '加载中…',
                     })
                     navigate('/success',{replace:true})
+                }else{
+                    Toast.show({
+                        icon: 'fail',
+                        content: '操作失败！',
+                    })
                 }
                 console.log(res)
             })
@@ -82,7 +91,12 @@ const Book = () => {
                 </div> */}
             </div>
             <div>
-                回收流程
+                <Image
+                    src={step}
+                    width={'98%'}
+                    height={'110rem'}
+                    fit='contain'
+                />
             </div>
             <div>
                 <Form 
@@ -127,7 +141,7 @@ const Book = () => {
                         }}
                         rules={[{ required: true }]}
                     >
-                        <DatePicker>
+                        <DatePicker style={{touchAction:'none'}}>
                             {value =>
                                 value ? dayjs(value).format('YYYY-MM-DD') : '请选择日期'
                             }
@@ -138,9 +152,9 @@ const Book = () => {
                             columns={3}
                             multiple={false}
                             options={[
-                                { label: '3~9本', value: '1kg' },
-                                { label: '9~18本', value: '5kg' },
-                                { label: '18本+', value: '10kg' },
+                                { label: '3~9本', value: '1' },
+                                { label: '9~18本', value: '5' },
+                                { label: '18本+', value: '10' },
                             ]}
                             onChange={(value)=>{
                                 if(value[0] === undefined){
@@ -149,9 +163,9 @@ const Book = () => {
                                     setShow(true)
                                 }
                                 // console.log(value[0])
-                                if(value[0] === '1kg'){
+                                if(value[0] === '1'){
                                     setIntegral('1~4')
-                                }else if(value[0] === '5kg'){
+                                }else if(value[0] === '5'){
                                     setIntegral('5~10')
                                 }else{
                                     setIntegral('14+')

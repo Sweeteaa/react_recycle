@@ -4,9 +4,10 @@ import { Form, Image, DatePicker, Selector, Button, Toast } from 'antd-mobile';
 import { RightOutline, LeftOutline } from 'antd-mobile-icons';
 import dayjs from 'dayjs';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Go from '../../../../components/Go/Go';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import useGetDay from '../../../../hooks/useGetDay';
+import step from '../../../../assets/css/step.png'
 
 //衣物回收订单创建页面
 const Clothes = (props) => {
@@ -19,15 +20,16 @@ const Clothes = (props) => {
     //获取当前所在路由 以及 从地址选择列表返回选择结果
     const x = useLocation()
     
+    let date = useGetDay()
     //将填写好的信息传给后端
     let inte = 0
     const onFinish = (values) => {
         // Dialog.alert({
         //   content: <pre>{JSON.stringify(values, null, 2)}</pre>,
         // })
-        if(values.weight[0] === "1kg"){
+        if(values.weight[0] === "1"){
             inte = 1
-        }else if(values.weight[0] === "5kg"){
+        }else if(values.weight[0] === "5"){
             inte = 5
         }else{
             inte = 14
@@ -40,7 +42,8 @@ const Clothes = (props) => {
             Integral:inte,
             state:'未回收',
             type:'衣服',
-            audit:false
+            audit:false,
+            addTime:date[0]
         }
         // console.log(params)
         // addOrder(params)
@@ -59,8 +62,13 @@ const Clothes = (props) => {
                         content: '加载中…',
                     })
                     navigate('/success',{replace:true})
+                }else{
+                    Toast.show({
+                        icon: 'fail',
+                        content: '操作失败！',
+                    })
                 }
-                console.log(res)
+                // console.log(res)
             })
             .catch((error) => {
                 reject( error );
@@ -88,7 +96,12 @@ const Clothes = (props) => {
                 </div>
             </div>
             <div>
-                回收流程
+                <Image
+                    src={step}
+                    width={'98%'}
+                    height={'110rem'}
+                    fit='contain'
+                />
             </div>
             <div>
                 <Form 
@@ -147,9 +160,9 @@ const Clothes = (props) => {
                             columns={3}
                             multiple={false}
                             options={[
-                                { label: '2~10件（1~5kg）', value: '1kg', index:1},
-                                { label: '10-20件（5~10kg）', value: '5kg', index:2 },
-                                { label: '20件以上（10kg）', value: '10kg', index:3 },
+                                { label: '2~10件（1~5kg）', value: '1', index:1},
+                                { label: '10-20件（5~10kg）', value: '5', index:2 },
+                                { label: '20件以上（10kg）', value: '10', index:3 },
                             ]}
                             onChange={(value)=>{
                                 if(value[0] === undefined){
@@ -158,9 +171,9 @@ const Clothes = (props) => {
                                     setShow(true)
                                 }
                                 // console.log(value[0])
-                                if(value[0] === '1kg'){
+                                if(value[0] === '1'){
                                     setIntegral('1~4')
-                                }else if(value[0] === '5kg'){
+                                }else if(value[0] === '5'){
                                     setIntegral('5~10')
                                 }else{
                                     setIntegral('14+')

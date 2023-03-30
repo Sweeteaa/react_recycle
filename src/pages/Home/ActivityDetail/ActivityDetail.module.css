@@ -15,6 +15,10 @@
     z-index: 0;
 }
 
+.msg{
+    margin-bottom: 120rem;
+}
+
 .title{
     width: 680rem;
     height: 100rem;

@@ -3,3 +3,12 @@
     --background-color: cadetblue !important;
     --border-color: var(--color);
 }
+
+.card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 700rem;
+}

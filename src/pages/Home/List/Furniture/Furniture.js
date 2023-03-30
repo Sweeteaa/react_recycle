@@ -6,6 +6,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RightOutline, LeftOutline } from 'antd-mobile-icons';
 import axios from 'axios';
+import useGetDay from '../../../../hooks/useGetDay';
+import step from '../../../../assets/css/step.png'
 
 const Furniture = () => {
     const name = useSelector(state => state.auth)
@@ -16,12 +18,13 @@ const Furniture = () => {
     const [show, setShow] = useState(false)
     const [integral, setIntegral] = useState(0)
     
+    let date = useGetDay()
     //将填写好的信息传给后端
     const onFinish = (values) => {
         let inte = 0
-        if(values.weight[0] === "5kg"){
+        if(values.weight[0] === "5"){
             inte = 4
-        }else if(values.weight[0] === "10kg"){
+        }else if(values.weight[0] === "10"){
             inte = 10
         }else{
             inte = 28
@@ -34,7 +37,8 @@ const Furniture = () => {
             Integral:inte,
             state:'未回收',
             type:'家具',
-            audit:false
+            audit:false,
+            addTime:date[0]
         }
         // console.log(params)
         return new Promise((resolve,reject) => {
@@ -52,8 +56,13 @@ const Furniture = () => {
                         content: '加载中…',
                     })
                     navigate('/success',{replace:true})
+                }else{
+                    Toast.show({
+                        icon: 'fail',
+                        content: '操作失败！',
+                    })
                 }
-                console.log(res)
+                // console.log(res)
             })
             .catch((error) => {
                 reject( error );
@@ -83,7 +92,12 @@ const Furniture = () => {
                 </div>
             </div>
             <div>
-                回收流程
+                <Image
+                    src={step}
+                    width={'98%'}
+                    height={'110rem'}
+                    fit='contain'
+                />
             </div>
             <div>
                 <Form 
@@ -139,9 +153,9 @@ const Furniture = () => {
                             columns={3}
                             multiple={false}
                             options={[
-                                { label: '1~3件', value: '5kg' },
-                                { label: '3~6件', value: '10kg' },
-                                { label: '6件+', value: '20kg' },
+                                { label: '1~3件', value: '5' },
+                                { label: '3~6件', value: '10' },
+                                { label: '6件+', value: '20' },
                             ]}
                             onChange={(value)=>{
                                 if(value[0] === undefined){
@@ -150,9 +164,9 @@ const Furniture = () => {
                                     setShow(true)
                                 }
                                 // console.log(value[0])
-                                if(value[0] === '5kg'){
+                                if(value[0] === '5'){
                                     setIntegral('4~8')
-                                }else if(value[0] === '10kg'){
+                                }else if(value[0] === '10'){
                                     setIntegral('10~20')
                                 }else{
                                     setIntegral('28+')

@@ -1,6 +1,7 @@
 import React from 'react';
-import { ResultPage } from 'antd-mobile';
-// import classes from './Success.module.css';
+import { ResultPage, Card } from 'antd-mobile';
+import { HeartFill } from 'antd-mobile-icons';
+import classes from './Success.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const Sueecss = () => {
@@ -16,7 +17,11 @@ const Sueecss = () => {
                 onSecondaryButtonClick={() => navigate('/home',{replace:true})}
                 primaryButtonText='查看订单'
                 onPrimaryButtonClick={() => navigate('/mine/logistics/no-recycle',{replace:true})}
-            />
+            >
+                <Card style={{ height: '168rem', marginTop: '12rem', fontSize:'40rem'}} className={classes.card}>
+                    <HeartFill fontSize={42} color='#cb3a56'/> 感谢您为环保事业贡献力量！
+                </Card>    
+            </ResultPage>
         </div>
     );
 };
