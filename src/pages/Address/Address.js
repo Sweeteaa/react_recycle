@@ -9,27 +9,78 @@ import classes from './Address.module.css'
 //新建地址页面
 const columns = [
     {
-      cityName: '浙江',
+          
+      cityName: '北京市',
       cities: [
         {
-          cityName: '杭州',
+          cityName: '北京市',
+          cities: [{ cityName: '东城区' }, { cityName: '朝阳区' },{ cityName: '海淀区' }, { cityName: '西城区' }],
+        }
+      ],
+    },
+    {
+      
+      cityName: '天津市',
+      cities: [
+        {
+          cityName: '天津市',
+          cities: [{ cityName: '和平区' }, { cityName: '河西区' },{ cityName: '南开区' }, { cityName: '河东区' }],
+        }
+      ],
+    },
+    {
+      
+      cityName: '上海市',
+      cities: [
+        {
+          cityName: '上海市',
+          cities: [{ cityName: '静安区' }, { cityName: '长宁区' },{ cityName: '黄浦区' }, { cityName: '浦东新区' }],
+        }
+      ],
+    },
+    {
+      cityName: '广东省',
+      cities: [
+        {
+          cityName: '广州市',
+          cities: [{ cityName: '越秀区' }, { cityName: '海珠区' },{ cityName: '天河区' }, { cityName: '荔湾区' },{ cityName: '白云区' }, { cityName: '番禺区' },{ cityName: '花都区' }, { cityName: '从化区' },{ cityName: '黄埔区' }, { cityName: '增城区' },{ cityName: '南沙区' }],
+        },
+        {
+          cityName: '深圳市',
+          cities: [{ cityName: '福田区' }, { cityName: '南山区' },{ cityName: '罗湖区' }, { cityName: '宝安区' },{ cityName: '蛇口区' }, { cityName: '龙华区' }],
+        },
+       {
+          cityName: '佛山市',
+          cities: [{ cityName: '南海区' }, { cityName: '禅城区' },{ cityName: '顺德区' }, { cityName: '高明区' },{ cityName: '三水区' }],
+        },
+        {
+          cityName: '东莞市',
+          cities: [{ cityName: '莞城街道' }, { cityName: '南城街道' },{ cityName: '东城街道' }, { cityName: '万江街道' }],
+        },
+      ]
+    },
+    {
+      cityName: '浙江省',
+      cities: [
+        {
+          cityName: '杭州市',
           cities: [{ cityName: '西湖区' }, { cityName: '余杭区' }],
         },
         {
-          cityName: '温州',
+          cityName: '温州市',
           cities: [{ cityName: '鹿城区' }, { cityName: '瓯海区' }],
         },
       ],
     },
     {
-      cityName: '福建',
+      cityName: '福建省',
       cities: [
         {
-          cityName: '福州',
+          cityName: '福州市',
           cities: [{ cityName: '鼓楼区' }, { cityName: '台江区' }],
         },
         {
-          cityName: '厦门',
+          cityName: '厦门市',
           cities: [{ cityName: '思明区' }, { cityName: '海沧区' }],
         },
       ],
