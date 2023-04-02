@@ -49,11 +49,16 @@ const UseDetail = () => {
                         />
                     </div>
                     <div className={classes.info}>
-                        <div className={classes.name}>{list[0].name}</div>
-                        <div className={classes.cost}>需{list[0].cost}积分</div>
+                        <div className={classes.title}>
+                            <div className={classes.cost}>{list[0].cost}积分</div>
+                            <div className={classes.name}>{list[0].name}</div>
+                        </div>
+                        <div>
+                            <div className={classes.has}>剩余库存 {list[0].has}</div>
+                        </div>
                     </div>
                     <div className={classes.foot}>
-                        <button className={classes.btn}><Link to={`/use/detail/${list[0].id}/order`} state={{list:list[0]}} style={{color:'#fff'}}>兑换</Link></button>
+                        <button className={classes.btn}><Link to={`/use/detail/${list[0].id}/${list[0].has}/order`} state={{list:list[0]}} style={{color:'#fff'}}>兑换</Link></button>
                     </div>
                 </div>
             }

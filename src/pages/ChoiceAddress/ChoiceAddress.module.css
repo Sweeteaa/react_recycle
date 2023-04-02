@@ -52,6 +52,7 @@
 .address{
     /* background-color: yellow; */
     display: flex;
+    flex-direction: column;
     width: 550rem;
 }
 

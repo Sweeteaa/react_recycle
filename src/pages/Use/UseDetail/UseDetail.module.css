@@ -16,19 +16,33 @@
 }
 
 .info{
+    width: 710rem;
+    display: flex;
+    flex-direction: row;
+    margin: 10rem 20rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20rem 40rem;
+    border-radius: 20rem;
+}
+
+.title{
     display: flex;
     flex-direction: column;
-    margin: 30rem 50rem;
 }
 
 .name{
-    font-size: 50rem;
-
+    font-size: 46rem;
 }
 
 .cost{
     font-size: 55rem;
     color: rgb(216, 11, 11);
+}
+
+.has{
+    color: gray;
 }
 
 .foot{
@@ -39,14 +53,15 @@
     left: 0;
     right: 0;
     bottom: 0;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
     margin:0;
-    background-color: rgb(240, 240, 221);
+    background-color: #fcfafa;
+    border-top: 0.5rem solid #dbdbdb;
 }
 
 .btn{
-    width: 280rem;
+    width: 480rem;
     height: 80rem;
     border-radius: 50rem;
     border: none;

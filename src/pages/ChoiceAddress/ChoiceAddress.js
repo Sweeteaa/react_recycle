@@ -4,7 +4,8 @@ import classes from './ChoiceAddress.module.css'
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { Radio } from 'antd';
+import { Radio} from 'antd';
+import { Ellipsis } from 'antd-mobile';
 import { createHashHistory } from "history";
 
 //地址选择
@@ -56,8 +57,7 @@ const ChoiceAddress = () => {
                                         <div className={classes.phone}>{item.phone}</div>
                                     </div>
                                     <div className={classes.address}>
-                                        <div className={classes.sample}>{item.city}</div>
-                                        <div className={classes.detail}>{item.detail}</div>
+                                        <div className={classes.sample}><Ellipsis direction='end' content={`${item.city+item.detail}`} /></div>
                                     </div>
                                 </div>
                             </div>

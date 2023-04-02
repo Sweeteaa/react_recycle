@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import classes from './Use.module.css'
 import Footer from '../../components/Footer/Footer'
-import { Image } from 'antd-mobile';
+import { Image, Dropdown, Space, Radio } from 'antd-mobile';
 // import { Image,FloatingBubble } from 'antd-mobile';
 import { FolderOutline, TruckOutline, MessageOutline, MoreOutline } from 'antd-mobile-icons'
 import { useSelector } from 'react-redux';
@@ -25,6 +25,21 @@ const Use = () => {
             getList(res.data.data)
         });
     },[auth])
+
+    //换购物品排序分类
+    const [updown, setUpdown] = useState('up')
+    let arr =[]
+    if(updown === 'up'){
+        arr = list.sort((a, b) => a.cost - b.cost)
+    }else{
+        arr = list.sort((a, b) => b.cost - a.cost)
+    }
+
+    // console.log(updown)
+
+    const [cate, setCate] = useState('全部')
+
+    // console.log(arr)
 
     // console.log(list)
 
@@ -76,9 +91,88 @@ const Use = () => {
                     累计积分&nbsp;&nbsp;&nbsp;&nbsp;{auth.data==null?'0':integral.Integral}
                 </div>
             </div>
+            <div>
+                <Dropdown>
+                    <Dropdown.Item key='sorter' title='排序'>
+                        <div style={{ padding: 12 }}>
+                            <Radio.Group defaultValue='up' onChange={(value)=>{
+                                setUpdown(value)
+                            }}
+                            >
+                                <Space direction='vertical' block>
+                                    <Radio block value='up'>
+                                        升序
+                                    </Radio>
+                                    <Radio block value='down'>
+                                        降序
+                                    </Radio>
+                                </Space>
+                            </Radio.Group>
+                        </div>
+                    </Dropdown.Item>
+                    <Dropdown.Item key='bizop' title='类别筛选'>
+                        <div style={{ padding: 12 }}>
+                            <Radio.Group defaultValue='全部' onChange={(value)=>{
+                                setCate(value)
+                            }}>
+                                <Space direction='vertical' block>
+                                    <Radio block value='全部'>
+                                        全部
+                                    </Radio>
+                                    <Radio block value='食物'>
+                                        食物
+                                    </Radio>
+                                    <Radio block value='装饰'>
+                                        装饰
+                                    </Radio>
+                                    <Radio block value='配饰'>
+                                        配饰
+                                    </Radio>
+                                    <Radio block value='日用品'>
+                                        日用品
+                                    </Radio>
+                                </Space>
+                            </Radio.Group>
+                        </div>
+                    </Dropdown.Item>
+                </Dropdown>
+            </div>
             <div className={classes.list}>
                 {
-                    list.map((item,index)=>
+                    cate !== '全部' &&
+                    arr.map((item,index)=>
+                        item && item.type === cate &&
+                        <Link 
+                            to={`/use/detail/${item.id}` }
+                            state={{id:item.id}}
+                            className={classes.item} 
+                            key={item.id}
+                        >
+                            <div className={classes.image}>
+                                <Image
+                                    key={item.id}
+                                    src={`${item.img}`}
+                                    width={'200rem'}
+                                    height={'200rem'}
+                                    fit='cover'
+                                    style={{borderRadius:'10rem'}}
+                                />
+                            </div>
+                            <div className={classes.info}>
+                                <div className={classes.name}>
+                                    <div>{item.name}</div>
+                                </div>
+                                <div className={classes.cost}>
+                                    <div style={{color:'gray'}}>需{item.cost}积分</div>
+                                    <div><button className={classes.btn}>+</button></div>
+                                </div>
+                            </div>
+                        </Link>
+                    )
+                }
+                {
+                    cate === '全部' &&
+                    arr.map((item,index)=>
                         item &&
                         <Link 
                             to={`/use/detail/${item.id}` }
@@ -108,6 +202,7 @@ const Use = () => {
                         </Link>
                     )
                 }
+                <div className={classes.tips}>未完待续，敬请等待......</div>
             </div>
             {/* <FloatingBubble
                 style={{
@@ -120,7 +215,6 @@ const Use = () => {
             >
                 <ShopbagOutline fontSize={32}/>
             </FloatingBubble> */}
-            <div className={classes.tips}>未完待续，敬请等待......</div>
             <Footer/>
         </div>
     );

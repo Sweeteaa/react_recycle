@@ -41,6 +41,7 @@ const Activity = () => {
             {
                 !(list === [] || list === undefined) &&
                 list.map(item=>
+                    item.state !== '已完成' &&
                     <Link 
                         to={`/home/activity/${item.id}` }
                         state={{id:item.id}}

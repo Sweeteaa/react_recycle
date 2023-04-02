@@ -53,7 +53,7 @@ const ActivityDetail = () => {
                         </div>
                         <div className={classes.bottom}>
                             <div className={classes.bar}>
-                                <div>活动进度</div>
+                                <div>活动进度，还需{list[0].num-list[0].progress}</div>
                                 <ProgressBar
                                     percent={list[0].progress / list[0].num * 100}
                                     text

@@ -52,7 +52,7 @@ const route = () => {
                 <Route path={"/home/handle"} element={<Handle/>}></Route>
             <Route path={"/use"} element={<Use/>}></Route>
                 <Route path={`/use/detail/:id`} element={<UseDetail/>}></Route>
-                <Route path={`/use/detail/:id/order`} element={<UseOrder/>}></Route>
+                <Route path={`/use/detail/:id/:has/order`} element={<UseOrder/>}></Route>
                 <Route path={"/mine/main"} element={<Main/>}></Route>
                     <Route path={"/use/main/nogo"} element={<NoGo/>}></Route>
                     <Route path={"/use/main/going"} element={<Going/>}></Route>

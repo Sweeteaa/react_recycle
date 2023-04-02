@@ -17,7 +17,8 @@ const UseOrder = (props) => {
     // console.log(name.data.Integral)
     //获取选择的换购物品id
     const {id} = useParams()
-    // console.log(id)
+    const {has} = useParams()
+    // console.log(has)
 
     const [list, getList] = useState([])
     const [integral, getIntegral] = useState([])
@@ -60,6 +61,7 @@ const UseOrder = (props) => {
 
     //从地址选择列表返回选择结果
     const address = useLocation()
+    // console.log(address.state.list.has)
 
     // console.log(address.state)
     let date = useGetDay()
@@ -83,29 +85,56 @@ const UseOrder = (props) => {
         let Integralnum = {
             Integral:integral.Integral - list[0].cost
         }
+        let Has = {
+            has:has - num
+        }
+        console.log(Has)
         return new Promise((resolve,reject) => {
             axios({
                   method:'post',
-                  url:`http://127.0.0.1:3001/user/updateIntegral/${name.data.username}`,
-                  data:Integralnum,
+                  url:`http://127.0.0.1:3001/user/items/updateUseItemHas/${id}`,
+                  data:Has,
                   headers:{'Content-Type':'application/x-www-form-urlencoded'}
               })
             .then((res) => {
                 resolve( res );
                 if(res.data.status !== 1){
-                    addUseOrder(params)
-                    Toast.show({
-                        icon: 'loading',
-                        content: '加载中…',
+                    return new Promise((resolve,reject) => {
+                        axios({
+                              method:'post',
+                              url:`http://127.0.0.1:3001/user/updateIntegral/${name.data.username}`,
+                              data:Integralnum,
+                              headers:{'Content-Type':'application/x-www-form-urlencoded'}
+                          })
+                        .then((res) => {
+                            resolve( res );
+                            if(res.data.status !== 1){
+                                addUseOrder(params)
+                                Toast.show({
+                                    icon: 'loading',
+                                    content: '加载中…',
+                                })
+                                navigate('/result',{replace:true})
+                            }else{
+                                Toast.show({
+                                    icon: 'fail',
+                                    content: '操作失败！',
+                                })
+                            }
+                            console.log(res)
+                        })
+                        .catch((error) => {
+                            reject( error );
+                            console.log(error)
+                        });
                     })
-                    navigate('/result',{replace:true})
-                }else{
-                    Toast.show({
-                        icon: 'fail',
-                        content: '操作失败！',
-                    })
-                }
-                // console.log(res)
+                    }else{
+                        Toast.show({
+                            icon: 'fail',
+                            content: '操作失败！',
+                        })
+                    }
+                console.log(res)
             })
             .catch((error) => {
                 reject( error );

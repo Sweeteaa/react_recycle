@@ -6,7 +6,7 @@
     /* margin: 30rem 50rem; */
     /* width: 30%; */
     height: 300rem;
-    border-radius: 0 0 100rem 100rem;
+    /* border-radius: 0 0 100rem 100rem; */
     background-color: rgb(158, 193, 194);
 }
 
@@ -95,21 +95,26 @@
 }
 
 .list{
-    width: 680rem;
+    width: 750rem;
     height: 100%;
     /* background-color: #fff; */
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 37rem;
-    
+    /* margin: 37rem; */
+    background-color: #fff;
+    border-top: 0.5rem rgb(214, 214, 214) solid;
+}
+
+.adm-radio.adm-radio-checked .adm-radio-icon {
+    background-color: cadetblue !important;
 }
 
 .item{
     width: 300rem;
     height: 350rem;
-    background-color: rgb(238, 234, 221);
+    background-color: rgb(253, 251, 244);
     display: flex;
     flex-direction: column;
     justify-content: center;
